@@ -1,31 +1,26 @@
 @import 'rex.css';
 
-#modalBackground{
-	display: none;
+#custom-grid1{
+	display: grid;
+	grid-template-columns: 30px auto;
+	grid-template-rows: auto;
 }
 
-#progressContainerModal{
-	display: none;
+.custom-app-name{
+	font-size: 1.3em;
 }
-
-#subscribeToNewsletterModal{
-	display: none;
-	width: 50%;
-}
-
 .custom-content-center-div{
 	width: 50%;
 }
 .custom-content-heading1{
 	font-size: 2.8em;
 }
-.custom-content-heading2{
-	font-size: 2.2em;
-}
 .custom-content-paragraph{
 	font-size: 1.4em;
 }
-
+.custom-responsive-btn{
+	font-size: 1.45em;
+}
 @media (max-width: 1280px){
 	.custom-content-center-div{
 		width: 60%;
@@ -33,11 +28,11 @@
 	.custom-content-heading1{
 		font-size: 2.6em;
 	}
-	.custom-content-heading2{
-		font-size: 2.2em;
-	}
 	.custom-content-paragraph{
 		font-size: 1.2em;
+	}
+	.custom-responsive-btn{
+		font-size: 1.25em;
 	}
 }
 
@@ -48,51 +43,26 @@
 	.custom-content-heading1{
 		font-size: 2.4em;
 	}
-	.custom-content-heading2{
-		font-size: 2em;
-	}
 	.custom-content-paragraph{
 		font-size: 1.2em;
 	}
-	.custom-newsletter{
-		display: block;
-	}
-	.custom-newsletter-column1{
-		display: none;
-	}
-	.custom-newsletter-column2 div{
-		float: none;
-		width: 100%;
-	}
-	.custom-newsletter-content{
-		font-size: 1.1em;
+	.custom-responsive-btn{
+		font-size: 1.25em;
 	}
 }
 
 @media (max-width: 800px){
-	#subscribeToNewsletterModal{
-		width: 90%;
-	}
 	.custom-content-center-div{
 		width: 90%;
 	}
 	.custom-content-heading1{
 		font-size: 2.2em;
 	}
-	.custom-content-heading2{
-		font-size: 1.8em;
-	}
 	.custom-content-paragraph{
 		font-size: 1.15em;
 	}
-	.custom-faq{
-		display: block;
-	}
-	.custom-faq div:first-child{
-		margin-bottom: 16px;
-	}
-	.custom-faq-content{
-		font-size: 1em;
+	.custom-responsive-btn{
+		font-size: 1.2em;
 	}
 }
 
