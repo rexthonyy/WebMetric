@@ -14,6 +14,16 @@ app.use(express.json());
 app.use(express.static('public'));
 app.use('/favicon.ico', express.static('public/images/icons/appicon.png'));
 
+const signupRoute = require("./routes/signup");
+app.use("/signup", signupRoute);
+
+const signinRoute = require("./routes/signin");
+app.use("/signin", signinRoute);
+
+const changePasswordRoute = require("./routes/changePassword");
+app.use("/changePassword", changePasswordRoute);
+
+
 //database connection
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/webmetricDB";
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true});

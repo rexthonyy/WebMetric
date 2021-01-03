@@ -1,0 +1,15 @@
+@import 'rex.css';
+
+#custom-grid1{
+	display: grid;
+	grid-template-columns: 30px auto;
+	grid-template-rows: auto;
+}
+
+#mainContainer{
+	display: block;
+}
+
+#progressContainer{
+	display: none;
+}

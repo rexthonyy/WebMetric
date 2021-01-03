@@ -1,0 +1,74 @@
+@import 'rex.css';
+
+#custom-grid1{
+	display: grid;
+	grid-template-columns: 30px auto;
+	grid-template-rows: auto;
+}
+
+#mainContainer{
+	display: block;
+}
+
+#progressContainer{
+	display: none;
+}
+
+
+.custom-content-center-div{
+	width: 50%;
+}
+.custom-content-heading1{
+	font-size: 2.8em;
+}
+.custom-content-paragraph{
+	font-size: 1.4em;
+}
+.custom-responsive-btn{
+	font-size: 1.45em;
+}
+@media (max-width: 1280px){
+	.custom-content-center-div{
+		width: 60%;
+	}
+	.custom-content-heading1{
+		font-size: 2.6em;
+	}
+	.custom-content-paragraph{
+		font-size: 1.2em;
+	}
+	.custom-responsive-btn{
+		font-size: 1.25em;
+	}
+}
+
+@media (max-width: 1000px){
+	.custom-content-center-div{
+		width: 80%;
+	}
+	.custom-content-heading1{
+		font-size: 2.4em;
+	}
+	.custom-content-paragraph{
+		font-size: 1.2em;
+	}
+	.custom-responsive-btn{
+		font-size: 1.25em;
+	}
+}
+
+@media (max-width: 800px){
+	.custom-content-center-div{
+		width: 90%;
+	}
+	.custom-content-heading1{
+		font-size: 2.2em;
+	}
+	.custom-content-paragraph{
+		font-size: 1.15em;
+	}
+	.custom-responsive-btn{
+		font-size: 1.2em;
+	}
+}
+

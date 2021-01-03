@@ -61,13 +61,13 @@ body{
 
 .rex-input-primary{
 	padding: 16px;
-	border: 0;
+	border: 1px solid black;
 	border-radius: 8px;
 	background-color: transparent;
 }
 
 .rex-input-primary:focus{
-	border: 1px solid blue;
+	border: 2px solid black;
 }
 
 .rex-border{
@@ -261,6 +261,10 @@ body{
 
 .rex-fs-small{
 	font-size: 1.2em;
+}
+
+.rex-fs-extra-small{
+	font-size: 1em;
 }
 
 .rex-weight-bold{
@@ -798,3 +802,78 @@ body{
 .rex-position-absolute{
 	position: absolute;
 }
+
+.rex-responsive-center-div{
+	width: 50%;
+}
+
+.rex-responsive-center-div-2{
+	width: 40%;
+}
+
+.rex-responsive-h1{
+	font-size: 2.8em;
+}
+
+.rex-responsive-paragraph{
+	font-size: 1.4em;
+}
+
+.rex-responsive-btn{
+	font-size: 1.45em;
+}
+
+@media (max-width: 1280px){
+	.rex-responsive-center-div{
+		width: 60%;
+	}
+	.rex-responsive-center-div-2{
+		width: 50%;
+	}
+	.rex-responsive-h1{
+		font-size: 2.6em;
+	}
+	.rex-responsive-paragraph{
+		font-size: 1.2em;
+	}
+	.rex-responsive-btn{
+		font-size: 1.25em;
+	}
+}
+
+@media (max-width: 1000px){
+	.rex-responsive-center-div{
+		width: 80%;
+	}
+	.rex-responsive-center-div-2{
+		width: 60%;
+	}
+	.rex-responsive-h1{
+		font-size: 2.4em;
+	}
+	.rex-responsive-paragraph{
+		font-size: 1.2em;
+	}
+	.rex-responsive-btn{
+		font-size: 1.25em;
+	}
+}
+
+@media (max-width: 800px){
+	.rex-responsive-center-div{
+		width: 90%;
+	}
+	.rex-responsive-center-div-2{
+		width: 80%;
+	}
+	.rex-responsive-h1{
+		font-size: 2.2em;
+	}
+	.rex-responsive-paragraph{
+		font-size: 1.15em;
+	}
+	.rex-responsive-btn{
+		font-size: 1.2em;
+	}
+}
+

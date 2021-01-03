@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link type="image/x-icon" rel="icon" href="images/icons/appicon.png"/>
+		<title>Signup - WebMetric</title>
+		<link type="text/css" rel="stylesheet" href="css/signup.css"/>
+		<script type="module" src="js/signup.js"></script>
+	</head>
+	<body>
+		<div id="mainContainer">
+			<div class="rex-height-50px rex-border-bottom-black">
+				<a href="index.html">
+				<div id="custom-grid1" class="rex-ml-32px rex-center-relative-div-vertical rex-float-left">
+					<div>
+						<div class="rex-center-relative-div-vertical">
+							<img class="rex-width-30px rex-height-30px" src="images/icons/appicon.png"/>
+						</div>
+					</div>
+					<div>
+						<div class="custom-app-name rex-ml-16px rex-center-relative-div-vertical rex-fs-normal rex-color-black rex-weight-bold">WEB METRIC</div>
+					</div>
+				</div>
+				</a>
+			</div>
+
+			<div class="rex-space-32px"></div>
+
+			<div class="rex-responsive-center-div-2 rex-center-div-horizontal">
+				<h1 class="rex-responsive-h1 rex-fs-large">Sign up</h1>
+				
+				<div class="rex-space-32px"></div>
+				<div class="rex-space-8px"></div>
+
+				<label for="nameInput" class="rex-fs-extra-small rex-weight-bold">Name</label>
+				<input type="text" id="nameInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-normal" placeholder="" />
+
+				<div class="rex-space-32px"></div>
+
+				<label for="emailInput" class="rex-fs-extra-small rex-weight-bold">Email</label>
+				<input type="email" id="emailInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-normal" placeholder="" />
+
+				<div class="rex-space-32px"></div>
+
+				<label for="password1Input" class="rex-fs-extra-small rex-weight-bold">Password</label>
+				<input type="password" id="password1Input" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-normal" placeholder="" />
+
+				<div class="rex-space-32px"></div>
+
+				<label for="password2Input" class="rex-fs-extra-small rex-weight-bold">Re-enter Password</label>
+				<input type="password" id="password2Input" class="rex-responsive-paragraph rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-normal" placeholder="" />
+
+				<div class="rex-space-32px"></div>
+				<div id="errorMessage" class="rex-responsive-paragraph rex-color-red rex-center-text rex-fs-small rex-display-gone">Email format not supported</div>
+				<div class="rex-space-32px"></div>
+				
+				<button id="signupBtn" class="rex-responsive-btn rex-btn-primary rex-pad16px rex-color-white rex-curDiv-8px rex-fs-normal rex-width-100pp">Sign up</button>
+
+				<div class="rex-space-32px"></div>
+				<div class="rex-space-32px"></div>
+				<div class="rex-space-32px"></div>
+			</div>
+		</div>
+		<div id="progressContainer" class="rex-height-100vh">
+			<img class="rex-center-div-relative rex-width-50px rex-height-50px" src="images/icons/loading.gif"/>
+		</div>
+	</body>
+</html>
