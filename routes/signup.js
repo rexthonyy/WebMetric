@@ -186,7 +186,7 @@ router.post('/register', checkExpiredCode, (req, res) => {
 
 		            try{
 		                const newUser = await user.save();
-		                res.status(201).json({ status: 'success', id: newUser._id });
+		                res.status(201).json({ status: 'success', apiKey: newUser.apiKey });
 		            }catch(err){
 		                res.status(400).json({ status: 'failed', error: err });
 		            }

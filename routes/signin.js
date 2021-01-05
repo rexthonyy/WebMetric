@@ -15,7 +15,7 @@ router.post('/', checkExpiredCode, (req, res) => {
         if(doc == null){
             res.json({ status: 'failed', error: 'Login credentials incorrect'});
         }else{
-        	res.json({ status: 'success', id: doc._id });
+        	res.json({ status: 'success', apiKey: doc.apiKey });
         }
     });
 });

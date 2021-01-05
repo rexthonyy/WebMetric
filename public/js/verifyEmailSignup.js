@@ -78,7 +78,7 @@ function verifyCode(code){
 	utils.sendPostRequest(url, data)
 	.then(json => {
 		if(json.status == "success"){
-			sessionStorage.setItem("userId", json.id);
+			sessionStorage.setItem("apiKey", json.apiKey);
 			sessionStorage.removeItem("name");
 			sessionStorage.removeItem("email");
 			sessionStorage.removeItem("password");

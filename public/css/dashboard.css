@@ -1,0 +1,102 @@
+@import 'rex.css';
+
+#custom-grid1{
+	display: grid;
+	grid-template-columns: 30px auto;
+	grid-template-rows: auto;
+}
+
+#modalBackground{
+	display: none;
+}
+
+.custom-modal{
+	display: none;
+	width: 40%;
+}
+
+.custom-app-name{
+	font-size: 1.3em;
+}
+
+.custom-responsive-container{
+	margin: 0 90px;
+}
+
+.custom-responsive-paragraph{
+	font-size: 1.4em;
+}
+
+@media (max-width: 1280px){
+	.custom-modal{
+		width: 50%;
+	}
+	.custom-responsive-container{
+		margin: 0 44px;
+	}
+	.custom-responsive-paragraph{
+		font-size: 1.4em;
+	}
+}
+
+@media (max-width: 1000px){
+	.custom-responsive-container{
+		margin: 0 32px;
+	}
+	.custom-responsive-paragraph{
+		font-size: 1.3em;
+	}
+}
+
+@media (max-width: 800px){
+	.custom-app-name-container{
+		margin-left: 16px;
+	}
+	.custom-user-profile-icon-container{
+		margin-right: 16px;
+	}
+	.custom-user-profile-icon-dropdown{
+		margin-right: 16px;
+	}
+	.custom-responsive-container{
+		margin: 0 24px;
+	}
+	.custom-responsive-paragraph{
+		font-size: 1.2em;
+	}
+}
+
+@media (max-width: 514px){
+	.custom-app-name{
+		font-size: 1.1em;
+	}
+	.custom-app-name-container{
+		margin-left: 8px;
+	}
+	.custom-user-profile-icon-container{
+		margin-right: 8px;
+	}
+	.custom-user-profile-icon-dropdown{
+		margin: 0;
+		width: 100%;
+	}
+	.custom-user-profile-icon-dropdown-container{
+		border-left: 8px solid transparent;
+		border-right: 8px solid transparent;
+	}
+	.custom-modal{
+		width: 90%;
+	}
+	.custom-responsive-container{
+		margin: 0 8px;
+	}
+}
+
+@media (max-width: 400px){
+	#filterProjectsInput{
+		width: 100%;
+	}
+	#createProjectBtn{
+		width: 100%;
+	}
+}

@@ -23,6 +23,12 @@ app.use("/signin", signinRoute);
 const changePasswordRoute = require("./routes/changePassword");
 app.use("/changePassword", changePasswordRoute);
 
+const userRoute = require("./routes/user");
+app.use("/user", userRoute);
+
+const projectRoute = require("./routes/project");
+app.use("/project", projectRoute);
+
 
 //database connection
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/webmetricDB";

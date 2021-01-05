@@ -6,9 +6,184 @@
 		<link type="image/x-icon" rel="icon" href="images/icons/appicon.png"/>
 		<title>Dashboard - WebMetic</title>
 		<link type="text/css" rel="stylesheet" href="css/dashboard.css"/>
-		<script type="module" src="js/dasboard.js"></script>
+		<script type="text/javascript" src="js/dashboard/util.js"></script>
+		<script type="text/javascript" src="js/dashboard/subject.js"></script>
+		<script type="text/javascript" src="js/dashboard/objectHandler.js"></script>
+		<script type="text/javascript" src="js/dashboard/getter.js"></script>
+		<script type="text/javascript" src="js/dashboard/displaySwitcher.js"></script>
+		<script type="text/javascript" src="js/dashboard/dialog.js"></script>
+		<script type="text/javascript" src="js/dashboard/view.js"></script>
+		<script type="text/javascript" src="js/dashboard/display.js"></script>
+		<script type="text/javascript" src="js/dashboard/dasboard.js"></script>
 	</head>
 	<body>
-		<h1>Dashboard</h1>
+		<div id="mainContainer" class="rex-display-gone">
+			<div class="rex-position-fixed rex-top-0 rex-left-0 rex-width-100pp rex-height-50px rex-background-white rex-z-index-1"><!-- fixed navigation with a profileIconDropdown -->
+				<div class="rex-height-50px rex-border-bottom-black"><!-- mainNavContainer -->
+					<div class="rex-display-grid2 rex-height-100pp">
+						<div>
+							<div id="custom-grid1" class="custom-app-name-container rex-ml-32px rex-center-relative-div-vertical rex-hover rex-float-left">
+								<div>
+									<div class="rex-center-relative-div-vertical">
+										<img class="rex-width-30px rex-height-30px" src="images/icons/appicon.png"/>
+									</div>
+								</div>
+								<div>
+									<div class="custom-app-name rex-ml-16px rex-center-relative-div-vertical rex-fs-normal rex-color-black rex-weight-bold">WEB METRIC</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="custom-user-profile-icon-container rex-center-relative-div-vertical rex-mr-32px rex-float-right">
+								<img id="userProfileDropdownIcon" class="rex-width-35px rex-height-35px rex-hover" src="images/icons/usericon.png"/>
+							</div>
+							<!-- <div class="custom-user-profile-icon-container rex-position-relative rex-display-inline-block rex-center-relative-div-vertical rex-mr-32px rex-float-right rex-border-blue">
+								<img id="userProfileIcon" class="rex-width-35px rex-height-35px" src="images/icons/usericon.png"/>
+								<div class="custom-user-profile-icon-dropdown rex-position-absolute rex-min-width-600pp rex-overflow-auto rex-box-shadow1 rex-z-index-1 rex-left--500pp rex-curDiv-4px rex-display-block">
+									<div class="rex-width-100pp">
+										<div id="viewAccountSettingsProfileDropdown" class="rex-center-text rex-selectable-item-background rex-hover">
+											<div class="rex-space-32px"></div>
+											<img class="rex-width-50px rex-height-50px" src="images/icons/usericon.png"/>
+											<div class="rex-space-16px"></div>
+											<p class="rex-fs-small rex-color-black">Rex Anthony</p>
+											<div class="rex-space-8px"></div>
+											<p class="rex-fs-extra-small rex-color-gray">rexthonyy@gmail.com</p>
+											<div class="rex-space-32px"></div>
+										</div>
+										<div class="rex-border-top-gray rex-pad16px rex-selectable-item-background rex-hover">
+											Account settings
+										</div>
+										<div class="rex-border-top-gray rex-pad16px rex-selectable-item-background rex-hover">
+											Sign out
+										</div>
+									</div>
+								</div>
+							</div> -->
+						</div>
+					</div>
+				</div>
+				<div class="custom-user-profile-icon-dropdown-container rex-position-relative">
+					<div id="profileDropdown" class="custom-user-profile-icon-dropdown rex-position-absolute rex-mr-32px rex-width-250px rex-overflow-auto rex-box-shadow1 rex-right-0 rex-background-white rex-display-block">
+						<div class="rex-width-100pp">
+							<div id="viewAccountSettingsProfileDropdown" class="rex-center-text rex-selectable-item-background rex-hover">
+								<div class="rex-space-32px"></div>
+								<img class="rex-width-50px rex-height-50px" src="images/icons/usericon.png"/>
+								<div class="rex-space-16px"></div>
+								<p id="profileDropdownName" class="rex-fs-small rex-color-black">Rex Anthony</p>
+								<div class="rex-space-8px"></div>
+								<p id="profileDropdownEmail" class="rex-fs-extra-small rex-color-gray">rexthonyy@gmail.com</p>
+								<div class="rex-space-32px"></div>
+							</div>
+							<div id="profileDropdownAccountSettingsMenuBtn" class="rex-border-top-gray rex-pad16px rex-selectable-item-background rex-hover">
+								Account settings
+							</div>
+							<div id="profileDropdownSignoutMenuBtn" class="rex-border-top-gray rex-pad16px rex-selectable-item-background rex-hover">
+								Sign out
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="rex-height-50px rex-background-black"></div><!-- a dummy nav to provide space for the fixed navigation at the top of the screen -->
+			<div>
+				<div id="levelOneContainer" class="rex-display-block"><!-- levelOneContainer -->
+					<div class="rex-border-bottom-gray "><!-- levelOneNavContainer -->
+						<div class="levelOneDisplayContainer rex-height-60px rex-background-gray rex-border-black">
+							<p id="simpleLevelOneNavContainerLabel" class="custom-responsive-container rex-center-relative-div-vertical rex-color-black rex-fs-normal">One</p>
+						</div>
+						<div class="levelOneDisplayContainer"><h1>two</h1></div>
+						<div class="levelOneDisplayContainer"><h1>Three</h1></div>
+					</div>
+					<div>
+						<div id="levelTwoContainer"><!-- levelTwoContainer -->
+							<div class="levelTwoDisplayContainer"><!-- projects home page -->
+								<div class="custom-responsive-container rex-height-70px">
+									<div class="rex-display-grid2 rex-center-relative-div-vertical">
+										<div>
+											<input type="text" id="filterProjectsInput" class="rex-center-relative-div-vertical rex-responsive-paragragh rex-input-primary rex-width-250px rex-pad8px rex-curDiv-4px rex-fs-extra-small" placeholder="Filter projects" />
+										</div>
+										<div>
+											<button id="addProjectBtn" class="rex-center-relative-div-vertical custom-responsive-paragraph rex-btn-secondary rex-fs-small rex-pad8px rex-color-black rex-curDiv-0 rex-fs-normal rex-float-right">Add project</button>
+										</div>
+									</div>
+								</div>
+								<div id="projectListContainer">
+									<div id="#" class="rex-border-bottom-lightgray rex-selectable-item-background rex-hover">
+										<div class="custom-responsive-container rex-height-50px">
+											<p class="rex-center-relative-div-vertical custom-responsive-paragraph rex-color-black rex-fs-normal">Web Metric - webmetric.ml</p>
+										</div>
+									</div>
+								</div>
+								<div id="noProjectContainer" class="custom-responsive-container rex-display-gone">
+									<p class="rex-fs-normal rex-mt-32px">Create a project to get started</p>
+								</div>
+							</div>
+							<div class="levelTwoDisplayContainer">
+								<div class="rex-responsive-center-div-2 rex-center-div-horizontal">
+									<div class="rex-space-32px"></div>
+									<div class="rex-space-8px"></div>
+
+									<label for="projectNameInput" class="rex-fs-extra-small rex-weight-bold">Project name</label>
+									<input type="text" id="projectNameInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-small" placeholder="website.com" />
+
+									<div class="rex-space-32px"></div>
+									<div id="createProjectErrorMessage" class="rex-responsive-paragraph rex-color-red rex-center-text rex-fs-small rex-display-gone">An error occured</div>
+									<div class="rex-space-32px"></div>
+
+									<button id="createProjectBtn" class="rex-responsive-btn rex-btn-primary rex-pad16px rex-color-white rex-curDiv-8px rex-fs-normal rex-width-100pp">Create Project</button>
+								</div>
+							</div>
+							<div class="levelTwoDisplayContainer"> <!-- Settings manage account -->
+								<div class="custom-responsive-container">
+									<div class="rex-pt-32px rex-pb-32px rex-border-bottom-lightgray">
+										<div class="custom-responsive-grid2 rex-display-grid2 rex-border-green rex-width-90pp">
+											<div class="rex-border">
+												<p class="rex-fs-normal rex-color-black">Profile</p>
+												<p class="rex-mt-16px rex-fs-small rex-color-gray">Your email address is your Identity on Web Metric and is used to login</p>
+											</div>
+											<div class="rex-border">
+												<label for="settingsEmailInput" class="rex-fs-extra-small rex-weight-bold">Email Address</label>
+												<input type="text" id="settingsEmailInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-small" placeholder="website.com" />
+
+												<div class="rex-space-16px"></div>
+
+												<label for="settingsNameInput" class="rex-fs-extra-small rex-weight-bold rex-mt-32px">Name</label>
+												<input type="text" id="settingsNameInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-small" placeholder="" />
+
+												<div class="rex-space-8px"></div>
+												<div id="settingsUpdateProfileErrorMessage" class="rex-responsive-paragraph rex-color-red rex-fs-small rex-display-block">An error occured</div>
+												<div class="rex-space-8px"></div>
+
+												<button id="settingsUpateProfileBtn" class="rex-responsive-btn rex-btn-primary rex-pad8px rex-color-white rex-curDiv-0 rex-fs-small rex-width-100px">Save</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="levelTwoDisplayContainer">Four dpc</div>
+						</div>
+						<div id="levelTwoProgressContainer" class="rex-display-gone rex-center-text"><!-- levelTwoProgressContainer -->
+							<img class="rex-width-50px rex-height-50px" src="images/icons/loading.gif"/>
+						</div>
+					</div>
+				</div>
+				<div id="levelOneProgressContainer" class="rex-display-gone rex-center-text"><!-- levelOneProgress container -->
+					<img class="rex-width-50px rex-height-50px" src="images/icons/loading.gif"/>
+				</div>
+			</div>
+		</div>
+		<div id="mainProgressContainer" class="rex-height-100vh rex-display-gone">
+			<img class="rex-center-div-relative rex-width-50px rex-height-50px" src="images/icons/loading.gif"/>
+		</div>
+
+
+		<!-- Modal background -->
+		<div id="modalBackground" class="rex-modal-background rex-display-flex rex-center-flex-items">
+
+			<!-- an alert modal -->
+			<div id="alertModal" class="custom-modal rex-pad32px rex-background-white rex-center-text rex-border-black">
+				<p id="alertModalMessage" class="rex-color-black rex-fs-small-50p rex-line-height-normal">Hello there, here is a message for you</p>
+				<button id="alertModalBtn" class="rex-btn-secondary rex-color-black rex-width-100pp rex-mt-32px rex-fs-normal">Okay</button>
+			</div>
 	</body>
 </html>

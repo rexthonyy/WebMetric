@@ -30,6 +30,10 @@ window.onload = () => {
 	};
 }
 
+function openDashboard(){
+	window.open("dashboard.html", "_self");
+}
+
 function login(email, password){
 	let data = { email: email, password: password };
 	let url = utils.getHostUrl() + "signin";
@@ -39,8 +43,8 @@ function login(email, password){
 	utils.sendPostRequest(url, data)
 	.then(json => {
 		if(json.status == "success"){
-			sessionStorage.setItem("userId", json.id);
-			window.open("dashboard.html", "_self");
+			sessionStorage.setItem("apiKey", json.apiKey);
+			openDashboard();
 		}else{
 			hideLoading();
 			showError(json.error, 5000);
