@@ -37,3 +37,16 @@ function wait(time, func){
 		func();
 	}, time);
 }
+
+function showError(elm, msg, duration = 3000){
+	elm.textContent = msg;
+	elm.style.display = "block";
+	wait(duration, () => {
+		elm.style.display = "none";
+	});
+}
+
+function isEmailValid(email){
+	const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}

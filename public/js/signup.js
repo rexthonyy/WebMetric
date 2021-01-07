@@ -8,38 +8,38 @@ window.onload = () => {
 		let password2 = getPassword2Input().value.trim();
 
 		if(!name){
-			showError("Please enter your name");
+			utils.showError(getErrorMessage(), "Please enter your name");
 			getNameInput().focus();
 			return;
 		}
 		if(!email){
-			showError("Please enter your email");
+			utils.showError(getErrorMessage(), "Please enter your email");
 			getEmailInput().focus();
 			return;
 		}
 		if(!password1){
-			showError("Please enter your password");
+			utils.showError(getErrorMessage(), "Please enter your password");
 			getPassword1Input().focus();
 			return;
 		}
 		if(!password2){
-			showError("Please retype your password");
+			utils.showError(getErrorMessage(), "Please retype your password");
 			getPassword2Input().focus();
 			return;
 		}
 		if(!utils.isEmailValid(email)){
-			showError("Email format not supported");
+			utils.showError(getErrorMessage(), "Email format not supported");
 			getEmailInput().focus();
 			return;
 		}
 		if(password1.length < 4){
-			showError("Password must be greater than 3 characters");
+			utils.showError(getErrorMessage(), "Password must be greater than 3 characters");
 			getPassword1Input().focus();
 			return;
 		}
 		if(password1 != password2){
-			showError("Passwords do not match");
-			getPassword1Input().focus();
+			utils.showError(getErrorMessage(), "Passwords do not match");
+			getPassword2Input().focus();
 			return;
 		}
 
@@ -62,22 +62,13 @@ function signup(name, email, password){
 			window.open("verifyEmailSignup.html", "_self");
 		}else{
 			hideLoading();
-			showError(json.error, 5000);
+			utils.showError(getErrorMessage(), json.error, 5000);
 		}
 	}).catch(err => {
 		hideLoading();
 		console.error(err);
-		showError(err, 5000);
+		utils.showError(getErrorMessage(), err, 5000);
 	});
-}
-
-function showError(error, duration = 3000){
-	let errorMessage = getErrorMessage();
-	errorMessage.textContent = error;
-    errorMessage.style.display = "block";
-    utils.wait(duration, () => {
-        errorMessage.style.display = "none";
-    });
 }
 
 function showLoading(){

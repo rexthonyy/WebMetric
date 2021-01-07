@@ -34,7 +34,8 @@ class ProfileDropdownView extends View {
 		};
 
 		getProfileDropdownSignoutMenuBtn().onclick = () => {
-			console.log("Sign out");
+			sessionStorage.removeItem("apiKey");
+			window.open("index.html", "_self");
 		};
 	}
 

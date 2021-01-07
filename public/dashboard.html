@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<link type="image/x-icon" rel="icon" href="images/icons/appicon.png"/>
-		<title>Dashboard - WebMetic</title>
-		<link type="text/css" rel="stylesheet" href="css/dashboard.css"/>
-		<script type="text/javascript" src="js/dashboard/util.js"></script>
-		<script type="text/javascript" src="js/dashboard/subject.js"></script>
-		<script type="text/javascript" src="js/dashboard/objectHandler.js"></script>
-		<script type="text/javascript" src="js/dashboard/getter.js"></script>
-		<script type="text/javascript" src="js/dashboard/displaySwitcher.js"></script>
-		<script type="text/javascript" src="js/dashboard/dialog.js"></script>
-		<script type="text/javascript" src="js/dashboard/view.js"></script>
-		<script type="text/javascript" src="js/dashboard/display.js"></script>
-		<script type="text/javascript" src="js/dashboard/dasboard.js"></script>
-	</head>
-	<body>
-		<div id="mainContainer" class="rex-display-gone">
-			<div class="rex-position-fixed rex-top-0 rex-left-0 rex-width-100pp rex-height-50px rex-background-white rex-z-index-1"><!-- fixed navigation with a profileIconDropdown -->
-				<div class="rex-height-50px rex-border-bottom-black"><!-- mainNavContainer -->
-					<div class="rex-display-grid2 rex-height-100pp">
-						<div>
-							<div id="custom-grid1" class="custom-app-name-container rex-ml-32px rex-center-relative-div-vertical rex-hover rex-float-left">
-								<div>
-									<div class="rex-center-relative-div-vertical">
-										<img class="rex-width-30px rex-height-30px" src="images/icons/appicon.png"/>
-									</div>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link type="image/x-icon" rel="icon" href="images/icons/appicon.png"/>
+	<title>Dashboard - WebMetic</title>
+	<link type="text/css" rel="stylesheet" href="css/dashboard.css"/>
+	<script type="text/javascript" src="js/dashboard/util.js"></script>
+	<script type="text/javascript" src="js/dashboard/subject.js"></script>
+	<script type="text/javascript" src="js/dashboard/objectHandler.js"></script>
+	<script type="text/javascript" src="js/dashboard/getter.js"></script>
+	<script type="text/javascript" src="js/dashboard/displaySwitcher.js"></script>
+	<script type="text/javascript" src="js/dashboard/dialog.js"></script>
+	<script type="text/javascript" src="js/dashboard/view.js"></script>
+	<script type="text/javascript" src="js/dashboard/display.js"></script>
+	<script type="text/javascript" src="js/dashboard/dasboard.js"></script>
+</head>
+<body>
+	<div id="mainContainer" class="rex-display-gone">
+		<div class="rex-position-fixed rex-top-0 rex-left-0 rex-width-100pp rex-height-50px rex-background-white rex-z-index-1"><!-- fixed navigation with a profileIconDropdown -->
+			<div class="rex-height-50px rex-border-bottom-black"><!-- mainNavContainer -->
+				<div class="rex-display-grid2 rex-height-100pp">
+					<div>
+						<div id="custom-grid1" class="custom-app-name-container rex-ml-32px rex-center-relative-div-vertical rex-hover rex-float-left">
+							<div>
+								<div class="rex-center-relative-div-vertical">
+									<img class="rex-width-30px rex-height-30px" src="images/icons/appicon.png"/>
 								</div>
-								<div>
-									<div class="custom-app-name rex-ml-16px rex-center-relative-div-vertical rex-fs-normal rex-color-black rex-weight-bold">WEB METRIC</div>
-								</div>
+							</div>
+							<div>
+								<div class="custom-app-name rex-ml-16px rex-center-relative-div-vertical rex-fs-normal rex-color-black rex-weight-bold">WEB METRIC</div>
 							</div>
 						</div>
-						<div>
-							<div class="custom-user-profile-icon-container rex-center-relative-div-vertical rex-mr-32px rex-float-right">
-								<img id="userProfileDropdownIcon" class="rex-width-35px rex-height-35px rex-hover" src="images/icons/usericon.png"/>
-							</div>
+					</div>
+					<div>
+						<div class="custom-user-profile-icon-container rex-center-relative-div-vertical rex-mr-32px rex-float-right">
+							<img id="userProfileDropdownIcon" class="rex-width-35px rex-height-35px rex-hover" src="images/icons/usericon.png"/>
+						</div>
 							<!-- <div class="custom-user-profile-icon-container rex-position-relative rex-display-inline-block rex-center-relative-div-vertical rex-mr-32px rex-float-right rex-border-blue">
 								<img id="userProfileIcon" class="rex-width-35px rex-height-35px" src="images/icons/usericon.png"/>
 								<div class="custom-user-profile-icon-dropdown rex-position-absolute rex-min-width-600pp rex-overflow-auto rex-box-shadow1 rex-z-index-1 rex-left--500pp rex-curDiv-4px rex-display-block">
@@ -135,29 +135,107 @@
 							</div>
 							<div class="levelTwoDisplayContainer"> <!-- Settings manage account -->
 								<div class="custom-responsive-container">
+									<!-- Profile -->
 									<div class="rex-pt-32px rex-pb-32px rex-border-bottom-lightgray">
-										<div class="custom-responsive-grid2 rex-display-grid2 rex-border-green rex-width-90pp">
-											<div class="rex-border">
-												<p class="rex-fs-normal rex-color-black">Profile</p>
-												<p class="rex-mt-16px rex-fs-small rex-color-gray">Your email address is your Identity on Web Metric and is used to login</p>
+										<div class="custom-responsive-grid2 rex-display-grid2 rex-width-80pp">
+											<div class="custom-responsive-settings-description-container rex-pr-32px">
+												<p class="custom-responsive-settings-description-title rex-fs-normal rex-color-black">Profile</p>
+												<p class="custom-responsive-settings-description-paragraph rex-mt-8px rex-fs-small rex-line-height-small rex-color-gray rex-width-80pp">Your email address is your Identity on Web Metric and is used to login</p>
 											</div>
-											<div class="rex-border">
+											<div class="custom-responsive-settings-content-container rex-pl-32px">
 												<label for="settingsEmailInput" class="rex-fs-extra-small rex-weight-bold">Email Address</label>
-												<input type="text" id="settingsEmailInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-small" placeholder="website.com" />
+												<input type="email" id="settingsEmailInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-small" placeholder="Enter your email" />
 
 												<div class="rex-space-16px"></div>
 
 												<label for="settingsNameInput" class="rex-fs-extra-small rex-weight-bold rex-mt-32px">Name</label>
-												<input type="text" id="settingsNameInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-small" placeholder="" />
+												<input type="text" id="settingsNameInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-small" placeholder="Enter your name" />
 
 												<div class="rex-space-8px"></div>
-												<div id="settingsUpdateProfileErrorMessage" class="rex-responsive-paragraph rex-color-red rex-fs-small rex-display-block">An error occured</div>
-												<div class="rex-space-8px"></div>
+												<div id="settingsUpdateProfileErrorMessage" class="custom-responsive-settings-content-error-message rex-responsive-paragraph rex-color-red rex-fs-extra-small rex-display-gone">An error occured</div>
+												<div class="rex-space-16px"></div>
 
-												<button id="settingsUpateProfileBtn" class="rex-responsive-btn rex-btn-primary rex-pad8px rex-color-white rex-curDiv-0 rex-fs-small rex-width-100px">Save</button>
+												<button id="settingsUpateProfileBtn" class="custom-responsive-settings-content-btn rex-btn-primary rex-pad8px rex-color-white rex-curDiv-0 rex-fs-small">Save</button>
+
+												<div class="rex-space-16px"></div>
 											</div>
 										</div>
 									</div>
+
+									<!-- Password -->
+									<div class="rex-pt-32px rex-pb-32px rex-border-bottom-lightgray">
+										<div class="custom-responsive-grid2 rex-display-grid2 rex-width-80pp">
+											<div class="custom-responsive-settings-description-container rex-pr-32px">
+												<p class="custom-responsive-settings-description-title rex-fs-normal rex-color-black">Password</p>
+												<p class="custom-responsive-settings-description-paragraph rex-mt-8px rex-fs-small rex-line-height-small rex-color-gray rex-width-80pp">Your password gives you access to your Web Metric account. Keep it safe</p>
+											</div>
+											<div class="custom-responsive-settings-content-container rex-pl-32px">
+												<label for="settingsCurrentPasswordInput" class="rex-fs-extra-small rex-weight-bold">Current password</label>
+												<input type="password" id="settingsCurrentPasswordInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-small" />
+
+												<div class="rex-space-16px"></div>
+
+												<label for="settingsNewPasswordInput" class="rex-fs-extra-small rex-weight-bold rex-mt-32px">New password</label>
+												<input type="password" id="settingsNewPasswordInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-small" />
+
+												<div class="rex-space-16px"></div>
+
+												<label for="settingsConfirmNewPasswordInput" class="rex-fs-extra-small rex-weight-bold rex-mt-32px">Confirm New password</label>
+												<input type="password" id="settingsConfirmNewPasswordInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-small" />
+
+												<div class="rex-space-8px"></div>
+												<div id="settingsChangePasswordErrorMessage" class="custom-responsive-settings-content-error-message rex-responsive-paragraph rex-color-red rex-fs-extra-small rex-display-gone">An error occured</div>
+												<div class="rex-space-16px"></div>
+
+												<button id="settingsChangePasswordBtn" class="custom-responsive-settings-content-btn rex-btn-primary rex-pad8px rex-color-white rex-curDiv-0 rex-fs-small">Update password</button>
+
+												<div class="rex-space-16px"></div>
+											</div>
+										</div>
+									</div>
+
+									<!-- API Key -->
+									<div class="rex-pt-32px rex-pb-32px rex-border-bottom-lightgray">
+										<div class="custom-responsive-grid2 rex-display-grid2 rex-width-80pp">
+											<div class="custom-responsive-settings-description-container rex-pr-32px">
+												<p class="custom-responsive-settings-description-title rex-fs-normal rex-color-black">API Key</p>
+											</div>
+											<div class="custom-responsive-settings-content-container rex-pl-32px">
+												<input disabled type="password" id="hiddenSettingsAPIKeyInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-fs-small rex-display-block"/>
+
+												<input disabled type="text" id="visibleSettingsAPIKeyInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-fs-small rex-display-gone"/>
+
+												<div class="rex-space-8px"></div>
+												<div id="settingsAPIKeyErrorMessage" class="custom-responsive-settings-content-error-message rex-responsive-paragraph rex-color-red rex-fs-extra-small rex-display-gone">An error occured</div>
+												<div class="rex-space-16px"></div>
+
+												<button id="settingsShowHideAPIKeyBtn" class="custom-responsive-settings-content-btn rex-btn-secondary rex-pad8px rex-color-black rex-curDiv-0 rex-fs-small rex-mr-4px">Show</button>
+
+												<button id="settingsRegenerateAPIKeyBtn" class="custom-responsive-settings-content-btn2 rex-btn-primary rex-pad8px rex-color-white rex-curDiv-0 rex-fs-small ">Regenerate API Key</button>
+
+												<div class="rex-space-16px"></div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Delete account -->
+									<div class="rex-pt-32px rex-pb-32px rex-border-bottom-lightgray">
+										<div class="custom-responsive-grid2 rex-display-grid2 rex-width-80pp">
+											<div class="custom-responsive-settings-description-container rex-pr-32px">
+												<p class="custom-responsive-settings-description-title rex-fs-normal rex-color-red">Close Account</p>
+												<p class="custom-responsive-settings-description-paragraph rex-mt-8px rex-fs-small rex-line-height-small rex-color-gray rex-width-80pp"><b>Warning: </b>Closing your account is irreversible</p>
+												<div class="rex-space-16px"></div>
+											</div>
+											<div class="custom-responsive-settings-content-container rex-pl-32px">
+												<button id="settingsCloseAccountBtn" class="custom-responsive-settings-content-btn rex-btn-secondary rex-pad8px rex-color-red rex-border-red rex-curDiv-0 rex-fs-small">Close this account...</button>
+											</div>
+										</div>
+									</div>
+
+									<div class="rex-space-32px"></div>
+									<div class="rex-space-32px"></div>
+									<div class="rex-space-32px"></div>
+									<div class="rex-space-32px"></div>
 								</div>
 							</div>
 							<div class="levelTwoDisplayContainer">Four dpc</div>
@@ -185,5 +263,41 @@
 				<p id="alertModalMessage" class="rex-color-black rex-fs-small-50p rex-line-height-normal">Hello there, here is a message for you</p>
 				<button id="alertModalBtn" class="rex-btn-secondary rex-color-black rex-width-100pp rex-mt-32px rex-fs-normal">Okay</button>
 			</div>
-	</body>
-</html>
+
+			<!-- a choice modal -->
+			<div id="choiceModal" class="custom-modal rex-pad32px rex-background-white rex-center-text rex-border-black">
+				<p id="choiceModalMessage" class="rex-color-black rex-fs-small-50p rex-line-height-normal">Hello there, here is a message for you</p>
+				<div class="rex-display-grid2">
+					<div class="rex-pr-8px">
+						<button id="choiceModalBtn1" class="rex-btn-primary rex-color-white rex-width-100pp rex-mt-32px rex-fs-normal">Okay</button>
+					</div>
+					<div class="rex-pl-8px">
+						<button id="choiceModalBtn2" class="rex-btn-secondary rex-color-black rex-width-100pp rex-mt-32px rex-fs-normal">Cancel</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- an input modal -->
+			<div id="inputModal" class="custom-modal rex-pad32px rex-background-white rex-center-text rex-border-black">
+				<p id="inputModalMessage" class="rex-color-black rex-fs-small-50p rex-line-height-normal">Hello there, here is a message for you</p>
+				<div class="rex-mt-8px">
+					<input type="text" id="inputModalInput" class="rex-input-primary rex-width-100pp rex-pad16px rex-curDiv-4px rex-mt-8px rex-fs-normal" />
+				</div>
+
+				<div class="rex-space-8px"></div>
+				<div id="inputModalErrorMessage" class="rex-responsive-paragraph rex-color-red rex-fs-extra-small rex-display-gone">An error occured</div>
+				<div class="rex-space-8px"></div>
+
+				<div class="rex-display-grid2">
+					<div class="rex-pr-8px">
+						<button id="inputModalBtn1" class="rex-btn-primary rex-color-white rex-width-100pp rex-mt-32px rex-fs-normal">Okay</button>
+					</div>
+					<div class="rex-pl-8px">
+						<button id="inputModalBtn2" class="rex-btn-secondary rex-color-black rex-width-100pp rex-mt-32px rex-fs-normal">Cancel</button>
+					</div>
+				</div>
+			</div>
+
+			
+		</body>
+		</html>

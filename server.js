@@ -20,9 +20,6 @@ app.use("/signup", signupRoute);
 const signinRoute = require("./routes/signin");
 app.use("/signin", signinRoute);
 
-const changePasswordRoute = require("./routes/changePassword");
-app.use("/changePassword", changePasswordRoute);
-
 const userRoute = require("./routes/user");
 app.use("/user", userRoute);
 

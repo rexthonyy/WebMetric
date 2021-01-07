@@ -56,6 +56,10 @@ function getHostUrl(req){
 	});
 }
 
+function getSendEmailUrl(){
+	return "http://rexthonyy.000webhostapp.com/apps/personal/EmailSender/sendEmailJSRequest.php";
+}
+
 module.exports = {
 	wait,
 	isEmailValid,
@@ -64,5 +68,6 @@ module.exports = {
 	getRandom,
 	myMap,
 	getFullUrl,
-	getHostUrl
+	getHostUrl,
+	getSendEmailUrl
 };

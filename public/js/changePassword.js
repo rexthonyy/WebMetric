@@ -61,7 +61,7 @@ function changePassword(password){
 	const email = sessionStorage.getItem("email");
 
 	let data = { email: email, password: password };
-	let url = utils.getHostUrl() + "changePassword";
+	let url = utils.getHostUrl() + "user/changePassword";
 
 	showLoading();
 

@@ -6,22 +6,22 @@ window.onload = () => {
 		let password = getPasswordInput().value.trim();
 
 		if(!email){
-			showError("Please enter your email");
+			utils.showError(getErrorMessage(), "Please enter your email");
 			getEmailInput().focus();
 			return;
 		}
 		if(!password){
-			showError("Please enter your password");
+			utils.showError(getErrorMessage(), "Please enter your password");
 			getPasswordInput().focus();
 			return;
 		}
 		if(!utils.isEmailValid(email)){
-			showError("Email format not supported");
+			utils.showError(getErrorMessage(), "Email format not supported");
 			getEmailInput().focus();
 			return;
 		}
 		if(password.length < 4){
-			showError("Password must be greater than 3 characters");
+			utils.showError(getErrorMessage(), "Password must be greater than 3 characters");
 			getPasswordInput().focus();
 			return;
 		}
@@ -47,22 +47,13 @@ function login(email, password){
 			openDashboard();
 		}else{
 			hideLoading();
-			showError(json.error, 5000);
+			utils.showError(getErrorMessage(), json.error, 5000);
 		}
 	}).catch(err => {
 		hideLoading();
 		console.error(err);
-		showError(err, 5000);
+		utils.showError(getErrorMessage(), err, 5000);
 	});
-}
-
-function showError(error, duration = 3000){
-	let errorMessage = getErrorMessage();
-	errorMessage.textContent = error;
-    errorMessage.style.display = "block";
-    utils.wait(duration, () => {
-        errorMessage.style.display = "none";
-    });
 }
 
 function showLoading(){

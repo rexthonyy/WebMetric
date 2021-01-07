@@ -110,3 +110,103 @@ function getCreateProjectErrorMessage(){
 	return document.getElementById("createProjectErrorMessage");
 }
 
+function getSettingsEmailInput(){
+	return document.getElementById("settingsEmailInput");
+}
+
+function getSettingsNameInput(){
+	return document.getElementById("settingsNameInput");
+}
+
+function getSettingsUpdateProfileErrorMessage(){
+	return document.getElementById("settingsUpdateProfileErrorMessage");
+}
+
+function getSettingsUpateProfileBtn(){
+	return document.getElementById("settingsUpateProfileBtn");
+}
+
+function getChoiceModal(){
+	return document.getElementById("choiceModal");
+}
+
+function getChoiceModalMessage(){
+	return document.getElementById("choiceModalMessage");
+}
+
+function getChoiceModalBtn1(){
+	return document.getElementById("choiceModalBtn1");
+}
+
+function getChoiceModalBtn2(){
+	return document.getElementById("choiceModalBtn2");
+}
+
+function getHiddenSettingsAPIKeyInput(){
+	return document.getElementById("hiddenSettingsAPIKeyInput");
+}
+
+function getVisibleSettingsAPIKeyInput(){
+	return document.getElementById("visibleSettingsAPIKeyInput");
+}
+
+function getSettingsCurrentPasswordInput(){
+	return document.getElementById("settingsCurrentPasswordInput");
+}
+
+function getSettingsNewPasswordInput(){
+	return document.getElementById("settingsNewPasswordInput");
+}
+
+function getSettingsConfirmNewPasswordInput(){
+	return document.getElementById("settingsConfirmNewPasswordInput");
+}
+
+function getSettingsChangePasswordErrorMessage(){
+	return document.getElementById("settingsChangePasswordErrorMessage");
+}
+
+function getSettingsChangePasswordBtn(){
+	return document.getElementById("settingsChangePasswordBtn");
+}
+
+function getInputModalMessage(){
+	return document.getElementById("inputModalMessage");
+}
+
+function getInputModalInput(){
+	return document.getElementById("inputModalInput");
+}
+
+function getInputModalErrorMessage(){
+	return document.getElementById("inputModalErrorMessage");
+}
+
+function getInputModalBtn1(){
+	return document.getElementById("inputModalBtn1");
+}
+
+function getInputModalBtn2(){
+	return document.getElementById("inputModalBtn2");
+}
+
+function getInputModal(){
+	return document.getElementById("inputModal");
+}
+
+function getSettingsShowHideAPIKeyBtn(){
+	return document.getElementById("settingsShowHideAPIKeyBtn");
+}
+
+function getSettingsRegenerateAPIKeyBtn(){
+	return document.getElementById("settingsRegenerateAPIKeyBtn");
+}
+
+function getSettingsAPIKeyErrorMessage(){
+	return document.getElementById("settingsAPIKeyErrorMessage");
+}
+
+function getSettingsCloseAccountBtn(){
+	return document.getElementById("settingsCloseAccountBtn");
+}
+
