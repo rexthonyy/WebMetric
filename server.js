@@ -26,6 +26,8 @@ app.use("/user", userRoute);
 const projectRoute = require("./routes/project");
 app.use("/project", projectRoute);
 
+const pageRoute = require("./routes/page");
+app.use("/page", pageRoute);
 
 //database connection
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/webmetricDB";

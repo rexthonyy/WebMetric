@@ -70,8 +70,57 @@ class ProfileDropdownView extends View {
 class SimpleLevelOneNavContainerView extends View {
 	constructor(title, align){
 		super(title);
-		getSimpleLevelOneNavContainerLabel().textContent = title;
+		this.update(title, align);
+	}
+
+	update(title, align){
+		getSimpleLevelOneNavContainerLabel().innerHTML = title;
 		if(align)getSimpleLevelOneNavContainerLabel().style.textAlign = align;
 		LevelOneDisplay.OpenLevelOneDisplayContainer(0);
 	}
 }
+
+class NavContainerView extends View {
+	constructor(navigationList, callback){
+		super(navigationList);
+		this.callback = callback;
+		this.render();
+	}
+
+	clearAllSelection(){
+		this.params.forEach(navItem => {
+			navItem.isSelected = false;
+		});
+	}
+
+	selectNavItem(index){
+		this.clearAllSelection();
+		this.params[index].isSelected = true;
+		this.render();
+	}
+
+	render(){
+		let html = "";
+		for(let i = 0; i < this.params.length; i++){
+			let title = this.params[i].title;
+			let isSelected = this.params[i].isSelected;
+			let displayType = isSelected ? "rex-display-block" : "rex-display-gone";
+			html += 
+			`
+				<div id="navItem_${i}" class="rex-display-inline-block rex-height-50px rex-selectable-item-background rex-hover rex-color-black rex-mr-16px">
+					<span class="rex-line-height-48px rex-fs-extra-small">${title}</span>
+					<div class="rex-background-black ${displayType} rex-height-2px"></div>
+				</div>
+			`;
+		}
+
+		getNavListContainer().innerHTML = html;
+
+		for(let i = 0; i < this.params.length; i++){
+			document.getElementById(`navItem_${i}`).onclick = () => {
+				this.callback(i);
+			};
+		}
+	}
+}
+

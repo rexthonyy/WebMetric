@@ -32,6 +32,10 @@ body{
 	background-color: rgb(230, 230, 230); 
 }
 
+.rex-underline-onhover:hover{
+	text-decoration: underline;
+}
+
 .rex-btn-primary{
 	padding: 16px;
 	background-color: black;
@@ -822,6 +826,10 @@ body{
 	cursor: pointer;
 }
 
+.rex-nowrap{
+	white-space: nowrap;
+}
+
 .rex-text-overflow-ellipses{
 	white-space: nowrap;
 	overflow: hidden;
@@ -833,8 +841,16 @@ body{
 	transition: all .3s;
 }
 
+.rex-overflow-hidden{
+	overflow: hidden;
+}
+
 .rex-overflow-auto{
 	overflow: auto;
+}
+
+.rex-overflow-horizontal{
+	overflow-x: scroll;
 }
 
 .rex-box-shadow1{
@@ -1149,6 +1165,14 @@ body{
 
 .rex-line-height-30px{
 	line-height: 30px;
+}
+
+.rex-line-height-48px{
+	line-height: 48px;
+}
+
+.rex-line-height-50px{
+	line-height: 50px;
 }
 
 .rex-center-text{

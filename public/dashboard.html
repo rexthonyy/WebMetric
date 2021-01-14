@@ -91,12 +91,16 @@
 						<div class="levelOneDisplayContainer rex-height-60px rex-background-gray rex-border-black">
 							<p id="simpleLevelOneNavContainerLabel" class="custom-responsive-container rex-center-relative-div-vertical rex-color-black rex-fs-normal">One</p>
 						</div>
-						<div class="levelOneDisplayContainer"><h1>two</h1></div>
+						<div class="levelOneDisplayContainer rex-height-60px">
+							<div id="abcd" class="rex-center-relative-div-vertical">
+								_________________Pages header
+							</div>
+						</div>
 						<div class="levelOneDisplayContainer"><h1>Three</h1></div>
 					</div>
 					<div>
 						<div id="levelTwoContainer"><!-- levelTwoContainer -->
-							<div class="levelTwoDisplayContainer"><!-- projects home page -->
+							<div class="levelTwoDisplayContainer"><!-- 0 projects home page -->
 								<div class="custom-responsive-container rex-height-70px">
 									<div class="rex-display-grid2 rex-center-relative-div-vertical">
 										<div>
@@ -118,7 +122,7 @@
 									<p class="rex-fs-normal rex-mt-32px">Create a project to get started</p>
 								</div>
 							</div>
-							<div class="levelTwoDisplayContainer">
+							<div class="levelTwoDisplayContainer"><!-- 1 create a new project -->
 								<div class="rex-responsive-center-div-2 rex-center-div-horizontal">
 									<div class="rex-space-32px"></div>
 									<div class="rex-space-8px"></div>
@@ -133,7 +137,7 @@
 									<button id="createProjectBtn" class="rex-responsive-btn rex-btn-primary rex-pad16px rex-color-white rex-curDiv-8px rex-fs-normal rex-width-100pp">Create Project</button>
 								</div>
 							</div>
-							<div class="levelTwoDisplayContainer"> <!-- Settings manage account -->
+							<div class="levelTwoDisplayContainer"> <!-- 2 Settings manage account -->
 								<div class="custom-responsive-container">
 									<!-- Profile -->
 									<div class="rex-pt-32px rex-pb-32px rex-border-bottom-lightgray">
@@ -236,6 +240,108 @@
 									<div class="rex-space-32px"></div>
 									<div class="rex-space-32px"></div>
 									<div class="rex-space-32px"></div>
+								</div>
+							</div>
+							<div class="levelTwoDisplayContainer"><!-- 3 pages display -->
+								<div class="rex-height-50px rex-background-gray rex-border-bottom-lightgray"><!-- the pages header -->
+									<div id="navListContainer" class="custom-responsive-container rex-height-50px rex-overflow-auto rex-nowrap">
+										<div class="rex-display-inline-block rex-height-50px rex-selectable-item-background rex-hover rex-color-black rex-mr-16px">
+											<span class="rex-line-height-48px rex-fs-extra-small">Overview</span>
+											<div class="rex-background-black rex-display-block rex-height-2px"></div>
+										</div>
+										<div class="rex-display-inline-block rex-height-50px rex-selectable-item-background rex-hover rex-color-black rex-mr-16px">
+											<span class="rex-line-height-48px rex-fs-extra-small">Settings</span>
+											<div class="rex-background-black rex-display-gone rex-height-2px"></div>
+										</div>
+									</div>
+								</div>
+								<div>
+									<div id="levelThreeContainer"> <!-- the pages sub containers -->
+										<div class="levelThreeDisplayContainer"> <!-- the page list -->
+											<div class="custom-responsive-container rex-height-70px">
+												<div class="rex-display-grid2 rex-center-relative-div-vertical">
+													<div>
+														<input type="text" id="filterPagesInput" class="rex-center-relative-div-vertical rex-responsive-paragragh rex-input-primary rex-width-250px rex-pad8px rex-curDiv-4px rex-fs-extra-small" placeholder="Filter pages" />
+													</div>
+													<div>
+														<button id="addPageBtn" class="rex-center-relative-div-vertical custom-responsive-paragraph rex-btn-secondary rex-fs-small rex-pad8px rex-color-black rex-curDiv-0 rex-fs-normal rex-float-right">Add page</button>
+													</div>
+												</div>
+											</div>
+											<div id="pageListContainer">
+												<div id="#" class="rex-border-bottom-lightgray rex-selectable-item-background rex-hover">
+													<div class="custom-responsive-container rex-height-50px">
+														<p class="rex-center-relative-div-vertical custom-responsive-paragraph rex-color-black rex-fs-normal">index.html</p>
+													</div>
+												</div>
+											</div>
+											<div id="noPageContainer" class="custom-responsive-container rex-display-gone">
+												<p class="rex-fs-normal rex-mt-32px">Create a page to get started</p>
+											</div>
+										</div>
+										<div class="levelThreeDisplayContainer"> <!-- the project settings -->
+											<div class="custom-responsive-container">
+												<!-- update project -->
+												<div class="rex-pt-32px rex-pb-32px rex-border-bottom-lightgray">
+													<div class="custom-responsive-grid2 rex-display-grid2 rex-width-80pp">
+														<div class="custom-responsive-settings-description-container rex-pr-32px">
+															<p class="custom-responsive-settings-description-title rex-fs-normal rex-color-black">Project Information</p>
+														</div>
+														<div class="custom-responsive-settings-content-container rex-pl-32px">
+															<label for="settingsProjectNameInput" class="rex-fs-extra-small rex-weight-bold">Project Name</label>
+															<input type="text" id="settingsProjectNameInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-small" placeholder="domain.com" />
+
+															<div class="rex-space-8px"></div>
+
+															<div id="settingsUpdateProjectErrorMessage" class="custom-responsive-settings-content-error-message rex-responsive-paragraph rex-color-red rex-fs-extra-small rex-display-gone">An error occured</div>
+															<div class="rex-space-16px"></div>
+
+															<button id="settingsUpateProjectBtn" class="custom-responsive-settings-content-btn rex-btn-primary rex-pad8px rex-color-white rex-curDiv-0 rex-fs-small">Save</button>
+
+															<div class="rex-space-16px"></div>
+														</div>
+													</div>
+												</div>
+
+												<!-- Delete project -->
+												<div class="rex-pt-32px rex-pb-32px rex-border-bottom-lightgray">
+													<div class="custom-responsive-grid2 rex-display-grid2 rex-width-80pp">
+														<div class="custom-responsive-settings-description-container rex-pr-32px">
+															<p class="custom-responsive-settings-description-title rex-fs-normal rex-color-red">Delete Project</p>
+															<p class="custom-responsive-settings-description-paragraph rex-mt-8px rex-fs-small rex-line-height-small rex-color-gray rex-width-80pp"><b>Warning: </b>Deleting this project and it's data is irreversible</p>
+															<div class="rex-space-16px"></div>
+														</div>
+														<div class="custom-responsive-settings-content-container rex-pl-32px">
+															<button id="settingsDeleteProjectBtn" class="custom-responsive-settings-content-btn rex-btn-secondary rex-pad8px rex-color-red rex-border-red rex-curDiv-0 rex-fs-small">Delete project</button>
+														</div>
+													</div>
+												</div>
+
+												<div class="rex-space-32px"></div>
+												<div class="rex-space-32px"></div>
+												<div class="rex-space-32px"></div>
+												<div class="rex-space-32px"></div>
+											</div>
+										</div>
+									</div>
+									<div id="levelThreeProgressContainer" class="rex-center-text"> <!-- progress container -->
+										<img class="rex-width-50px rex-height-50px" src="images/icons/loading.gif"/>
+									</div>
+								</div>
+							</div>
+							<div class="levelTwoDisplayContainer"><!-- 4 create a new page -->
+								<div class="rex-responsive-center-div-2 rex-center-div-horizontal">
+									<div class="rex-space-32px"></div>
+									<div class="rex-space-8px"></div>
+
+									<label for="pageNameInput" class="rex-fs-extra-small rex-weight-bold">Page name</label>
+									<input type="text" id="pageNameInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-small" placeholder="/index.html" />
+
+									<div class="rex-space-32px"></div>
+									<div id="createPageErrorMessage" class="rex-responsive-paragraph rex-color-red rex-center-text rex-fs-small rex-display-gone">An error occured</div>
+									<div class="rex-space-32px"></div>
+
+									<button id="createPageBtn" class="rex-responsive-btn rex-btn-primary rex-pad16px rex-color-white rex-curDiv-8px rex-fs-normal rex-width-100pp">Create Page</button>
 								</div>
 							</div>
 							<div class="levelTwoDisplayContainer">Four dpc</div>

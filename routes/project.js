@@ -59,4 +59,40 @@ router.post('/createProject', (req, res) => {
         }
     });
 });
+
+router.post('/updateProject', (req, res) => {
+
+    const projectId = req.body.projectId;
+    const projectName = req.body.projectName;
+    const apiKey = req.body.apiKey;
+
+    User.findOne({ apiKey: apiKey }, '_id',(err, doc) => {
+        if(err) {
+            res.json({ status: 'failed', error: err });
+            return;
+        } 
+        if(doc == null){
+            res.json({ status: 'failed', error: 'User not found'});
+        }else{
+            Project.findOne({ _id: projectId, userId: doc._id }, '_id name', async (err, doc) => {
+                if(err) {
+                    res.json({ status: 'failed', error: err });
+                    return;
+                } 
+                if(doc == null){
+                    res.json({ status: 'failed', error: 'Project not found'});
+                }else{
+                    doc.name = projectName;
+                    try{
+                        project = await doc.save();
+                        res.json({ status: 'success', project: project});
+                    }catch(err){
+                        res.status(400).json({ status: 'failed', error: 'Failed to update project'});
+                    }
+                }
+            });
+        }
+    });
+});
+
 module.exports = router;

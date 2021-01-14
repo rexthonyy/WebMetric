@@ -210,3 +210,59 @@ function getSettingsCloseAccountBtn(){
 	return document.getElementById("settingsCloseAccountBtn");
 }
 
+function getAddPageBtn(){
+	return document.getElementById("addPageBtn");
+}
+
+function getFilterPagesInput(){
+	return document.getElementById("filterPagesInput");
+}
+
+function getPageListContainer(){
+	return document.getElementById("pageListContainer");
+}
+
+function getNoPageContainer(){
+	return document.getElementById("noPageContainer");
+}
+
+function getLevelThreeDisplayContainers(){
+	return document.getElementsByClassName("levelThreeDisplayContainer");
+}
+
+function getLevelThreeContainer(){
+	return document.getElementById("levelThreeContainer");
+}
+
+function getLevelThreeProgressContainer(){
+	return document.getElementById("levelThreeProgressContainer");
+}
+
+function getNavListContainer(){
+	return document.getElementById("navListContainer");
+}
+
+function getCreatePageBtn(){
+	return document.getElementById("createPageBtn");
+}
+
+function getPageNameInput(){
+	return document.getElementById("pageNameInput");
+}
+
+function getCreatePageErrorMessage(){
+	return document.getElementById("createPageErrorMessage");
+}
+
+function getSettingsProjectNameInput(){
+	return document.getElementById("settingsProjectNameInput");
+}
+
+function getSettingsUpateProjectBtn(){
+	return document.getElementById("settingsUpateProjectBtn");
+}
+
+function getSettingsUpdateProjectErrorMessage(){
+	return document.getElementById("settingsUpdateProjectErrorMessage");
+}
+
