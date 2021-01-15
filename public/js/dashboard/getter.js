@@ -302,3 +302,19 @@ function getCreateEventErrorMessage(){
 	return document.getElementById("createEventErrorMessage");
 }
 
+function getSettingsPageNameInput(){
+	return document.getElementById("settingsPageNameInput");
+}
+
+function getSettingsUpatePageBtn(){
+	return document.getElementById("settingsUpatePageBtn");
+}
+
+function getSettingsUpdatePageErrorMessage(){
+	return document.getElementById("settingsUpdatePageErrorMessage");
+}
+
+function getSettingsDeletePageBtn(){
+	return document.getElementById("settingsDeletePageBtn");
+}
+

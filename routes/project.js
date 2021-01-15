@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const User = require('../models/users');
 const Project = require('../models/projects');
+const Page = require('../models/pages');
+const Event = require('../models/events');
 
 //input=apiKey output=projects array
 router.get('/getUserProjects', (req, res) => {
@@ -108,19 +110,44 @@ router.post('/deleteProject', (req, res) => {
         if(doc == null){
             res.json({ status: 'failed', error: 'User not found'});
         }else{
+            const userId = doc._id;
             //find other project dependencies and delete them here
-            Project.findOne({ _id: projectId, userId: doc._id }, async (err, doc) => {
+            Event.find({ projectId: projectId, userId: userId }, async (err, doc) => {
                 if(err) {
                     res.json({ status: 'failed', error: err });
                     return;
                 } 
-                if(doc == null){
-                    res.json({ status: 'failed', error: 'Project not found'});
-                }else{
-                    doc.remove();
-                    res.json({ status: 'success' });
+                if(doc != null){
+                    doc.forEach(event => {
+                        event.remove();
+                    });
                 }
-            });
+
+                Page.find({ projectId: projectId, userId: userId }, async (err, doc) => {
+                    if(err) {
+                        res.json({ status: 'failed', error: err });
+                        return;
+                    } 
+                    if(doc != null){
+                        doc.forEach(page => {
+                            page.remove();
+                        });
+                    }
+
+                    Project.findOne({ _id: projectId, userId: userId }, async (err, doc) => {
+                        if(err) {
+                            res.json({ status: 'failed', error: err });
+                            return;
+                        } 
+                        if(doc == null){
+                            res.json({ status: 'failed', error: 'Project not found'});
+                        }else{
+                            doc.remove();
+                            res.json({ status: 'success' });
+                        }
+                    });
+                });
+            }); 
         }
     });
 });
