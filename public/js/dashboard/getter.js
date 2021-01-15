@@ -266,3 +266,39 @@ function getSettingsUpdateProjectErrorMessage(){
 	return document.getElementById("settingsUpdateProjectErrorMessage");
 }
 
+function getSettingsDeleteProjectBtn(){
+	return document.getElementById("settingsDeleteProjectBtn");
+}
+
+function getAddEventBtn(){
+	return document.getElementById("addEventBtn");
+}
+
+function getFilterEventsInput(){
+	return document.getElementById("filterEventsInput");
+}
+
+function getNoEventContainer(){
+	return document.getElementById("noEventContainer");
+}
+
+function getEventListContainer(){
+	return document.getElementById("eventListContainer");
+}
+
+function getCreateEventBtn(){
+	return document.getElementById("createEventBtn");
+}
+
+function getEventNameInput(){
+	return document.getElementById("eventNameInput");
+}
+
+function getEventDescriptionInput(){
+	return document.getElementById("eventDescriptionInput");
+}
+
+function getCreateEventErrorMessage(){
+	return document.getElementById("createEventErrorMessage");
+}
+

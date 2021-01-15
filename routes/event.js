@@ -1,13 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const User = require('../models/users');
-const Page = require('../models/pages');
+const Event = require('../models/events');
+const { v4: uuidV4 } = require('uuid');
 
-//input=apiKey output=projects array
-router.get('/getProjectPages', (req, res) => {
+router.get('/getPageEvents', (req, res) => {
 
     const apiKey = req.query.apiKey;
     const projectId = req.query.projectId;
+    const pageId = req.query.pageId;
 
     User.findOne({ apiKey: apiKey }, '_id', (err, doc) => {
         if(err) {
@@ -18,25 +19,27 @@ router.get('/getProjectPages', (req, res) => {
         }else{
             let userId = doc._id;
 
-            Page.find({ userId: userId, projectId: projectId }, '_id name projectId', (err, doc) => {
+            Event.find({ userId: userId, projectId: projectId, pageId: pageId }, (err, doc) => {
                 if(err) {
                     res.json({ status: 'failed', error: err });
                 } 
                 if(doc == null){
-                    res.json({ status: 'success', pages: [] });
+                    res.json({ status: 'success', events: [] });
                 }else{
-                    res.json({ status: 'success', pages: doc });
+                    res.json({ status: 'success', events: doc });
                 }
             });
         }
     });
 });
 
-router.post('/createPage', (req, res) => {
+router.post('/createEvent', (req, res) => {
 
     const name = req.body.name;
+    const description = req.body.description;
     const apiKey = req.body.apiKey;
     const projectId = req.body.projectId;
+    const pageId = req.body.pageId;
 
     User.findOne({ apiKey: apiKey }, '_id', async (err, doc) => {
         if(err) {
@@ -47,14 +50,17 @@ router.post('/createPage', (req, res) => {
         }else{
             let userId = doc._id;
 
-            const page = new Page({
+            const event = new Event({
                 userId: userId,
                 projectId: projectId,
-                name: name
+                pageId: pageId,
+                eventKey: uuidV4(),
+                name: name,
+                description: description
             });
 
             try{
-                await page.save();
+                await event.save();
                 res.json({ status: 'success' });
             }catch(err){
                 res.json({ status: 'failed', error: err });

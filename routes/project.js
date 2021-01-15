@@ -95,4 +95,35 @@ router.post('/updateProject', (req, res) => {
     });
 });
 
+router.post('/deleteProject', (req, res) => {
+
+    const projectId = req.body.projectId;
+    const apiKey = req.body.apiKey;
+
+    User.findOne({ apiKey: apiKey }, '_id',(err, doc) => {
+        if(err) {
+            res.json({ status: 'failed', error: err });
+            return;
+        } 
+        if(doc == null){
+            res.json({ status: 'failed', error: 'User not found'});
+        }else{
+            //find other project dependencies and delete them here
+            Project.findOne({ _id: projectId, userId: doc._id }, async (err, doc) => {
+                if(err) {
+                    res.json({ status: 'failed', error: err });
+                    return;
+                } 
+                if(doc == null){
+                    res.json({ status: 'failed', error: 'Project not found'});
+                }else{
+                    doc.remove();
+                    res.json({ status: 'success' });
+                }
+            });
+        }
+    });
+});
+
+
 module.exports = router;

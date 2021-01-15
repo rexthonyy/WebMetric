@@ -97,6 +97,10 @@ body{
 	border: 1px solid orange;
 }
 
+.rex-border-pink{
+	border: 1px solid pink;
+}
+
 .rex-no-border{
 	border: 0;
 }
@@ -210,12 +214,20 @@ body{
 	color: gray;
 }
 
+.rex-color-darkgray{
+	color: rgb(100, 100, 100);
+}
+
 .rex-color-red{
 	color: red;
 }
 
 .rex-color-orange{
 	color: orange;
+}
+
+.rex-color-pink{
+	color: pink;
 }
 
 .rex-background-primary{
@@ -236,6 +248,14 @@ body{
 
 .rex-background-green{
 	background-color: green;
+}
+
+.rex-background-orange{
+	background-color: orange;
+}
+
+.rex-background-pink{
+	background-color: pink;
 }
 
 .rex-background-transparent{
@@ -444,6 +464,22 @@ body{
 
 .rex-height-100px{
 	height: 100px;
+}
+
+.rex-height-200px{
+	height: 200px;
+}
+
+.rex-height-300px{
+	height: 300px;
+}
+
+.rex-height-400px{
+	height: 400px;
+}
+
+.rex-height-500px{
+	height: 500px;
 }
 
 .rex-width-10pp{
@@ -822,6 +858,14 @@ body{
 	margin-bottom: 8px;
 }
 
+.rex-mb-16px{
+	margin-bottom: 16px;
+}
+
+.rex-mb-32px{
+	margin-bottom: 32px;
+}
+
 .rex-hover{
 	cursor: pointer;
 }
@@ -1177,6 +1221,10 @@ body{
 
 .rex-center-text{
 	text-align: center;
+}
+
+.rex-noresize{
+	resize: none;
 }
 
 .rex-modal-background{

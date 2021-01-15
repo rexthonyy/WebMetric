@@ -136,6 +136,41 @@ class LevelOneDisplay extends Display {
 		getLevelOneContainer().style.display = "block";
 		getLevelOneProgressContainer().style.display = "none";
 	}
+
+	getNavigationHTML(navArray){
+		let html = "";
+		for(let i = 0; i < navArray.length; i++){
+			if(i > 0){
+				html += " <span class='rex-mr-8px'> > </span>";
+			}
+
+			html += 
+			`
+			<span id='navChip_${i}' class='rex-underline-onhover rex-hover rex-mr-8px'>${navArray[i]}</span>
+			`;
+		}
+		return html;
+	}
+
+	setNavigationClickListeners(navArray){
+		for(let i = 0; i < navArray.length; i++){
+			switch(i){
+				case 0:
+				document.getElementById(`navChip_${i}`).onclick = () => {
+					dashboardDisplay.displaySwitcher.open(new AllProjectsLevelOneDisplay());
+				};
+				break;
+
+				case 1:
+				document.getElementById(`navChip_${i}`).onclick = () => {
+					dashboardDisplay.displaySwitcher.open(new AllPagesLevelOneDisplay(this.project));
+				};
+				break;
+			}
+		}
+	}
+
+	onclickItem(index){}
 }
 
 class AllProjectsLevelOneDisplay extends LevelOneDisplay {
@@ -217,41 +252,21 @@ class AllPagesLevelOneDisplay extends LevelOneDisplay {
 		this.childDisplay.open();
 	}
 
-	getNavigationHTML(navArray){
-		let html = "";
-		for(let i = 0; i < navArray.length; i++){
-			if(i > 0){
-				html += " <span class='rex-mr-8px'> > </span>";
-			}
+	onclickNavItem(index){
+		switch(index){
+			case 0:
+			dashboardDisplay.displaySwitcher.open(new AllProjectsLevelOneDisplay());
+			break;
 
-			html += 
-			`
-			<span id='navChip_${i}' class='rex-underline-onhover rex-hover rex-mr-8px'>${navArray[i]}</span>
-			`;
-		}
-		return html;
-	}
-
-	setNavigationClickListeners(navArray){
-		for(let i = 0; i < navArray.length; i++){
-			switch(i){
-				case 0:
-				document.getElementById(`navChip_${i}`).onclick = () => {
-					dashboardDisplay.displaySwitcher.open(new AllProjectsLevelOneDisplay());
-				};
-				break;
-
-				case 1:
-				document.getElementById(`navChip_${i}`).onclick = () => {
-					dashboardDisplay.displaySwitcher.open(new AllPagesLevelOneDisplay(this.project));
-				};
-				break;
-			}
+			case 1:
+			dashboardDisplay.displaySwitcher.open(new AllPagesLevelOneDisplay(this.project));
+			break;
 		}
 	}
 
 	hookToProjectUpdateListener(){
 		dashboardDisplay.projectHandler.subject.listeners.push(this.projectUpdated.bind(this));
+		//console.log(dashboardDisplay.projectHandler.subject.listeners.length);
 	}
 
 	unhookFromProjectUpdateListener(){
@@ -292,6 +307,87 @@ class CreatePageLevelOneDisplay extends LevelOneDisplay {
 	}
 }
 
+class AllEventsLevelOneDisplay extends LevelOneDisplay {
+	constructor(project, page){
+		super();
+		this.project = project;
+		this.page = page;
+	}
+
+	open(){
+		LevelOneDisplay.HideLevelOneProgressContainer();
+		let navArray = ['All Projects', this.project.name, this.page.name];
+		this.navContainerView = new SimpleLevelOneNavContainerView(this.getNavigationHTML(navArray), "left");
+
+		this.setNavigationClickListeners(navArray);
+
+		//listener for changes to the project name
+		this.hookToPageUpdateListener();
+
+		//set up the display for the view
+		this.childDisplay = new AllEventsLevelTwoDisplay(this.project, this.page);
+		this.childDisplay.open();
+	}
+
+	onclickNavItem(index){
+		switch(index){
+			case 0:
+			dashboardDisplay.displaySwitcher.open(new AllProjectsLevelOneDisplay());
+			break;
+
+			case 1:
+			dashboardDisplay.displaySwitcher.open(new AllPagesLevelOneDisplay(this.project));
+			break;
+
+			case 2:
+			dashboardDisplay.displaySwitcher.open(new AllEventsLevelOneDisplay(this.project, this.page));
+			break;
+		}
+	}
+
+	hookToPageUpdateListener(){
+		dashboardDisplay.pageHandler.subject.listeners.push(this.pageUpdated.bind(this));
+		//console.log(dashboardDisplay.pageHandler.subject.listeners.length);
+	}
+
+	unhookFromPageUpdateListener(){
+		//test to ensure that this is removed
+		dashboardDisplay.pageHandler.subject.listeners.pop();
+	}
+
+	pageUpdated(page){
+		this.page = page;
+		let navArray = ['All Projects', this.project.name, page.name];
+		this.navContainerView.update(this.getNavigationHTML(navArray), "left");
+		this.setNavigationClickListeners(navArray);
+	}
+
+	close(){
+		this.unhookFromPageUpdateListener();
+		this.childDisplay.close();
+	}
+}
+
+class CreateEventLevelOneDisplay extends LevelOneDisplay {
+	constructor(project, page){
+		super();
+		this.project = project;
+		this.page = page;
+	}
+
+	open(){
+		LevelOneDisplay.HideLevelOneProgressContainer();
+		new SimpleLevelOneNavContainerView("Create New Event", "center");
+
+		//set up the display for the views
+		this.childDisplay = new CreateEventLevelTwoDisplay(this.project, this.page);
+		this.childDisplay.open();
+	}
+
+	close(){
+		this.childDisplay.close();
+	}
+}
 class LevelTwoDisplay extends Display {
 	constructor(){
 		super();
@@ -460,7 +556,7 @@ class CreateProjectLevelTwoDisplay extends LevelTwoDisplay {
 		LevelTwoDisplay.OpenLevelTwoDisplayContainer(1);
 
 		getCreateProjectBtn().onclick = () => {
-			let name = getProjectNameInput().value;
+			let name = escapeHTML(getProjectNameInput().value.trim());
 			if(!name){
 				showError(getCreateProjectErrorMessage(), "Enter the name of your project");
 				getProjectNameInput().focus();
@@ -975,7 +1071,7 @@ class AllPagesLevelTwoDisplay extends LevelTwoDisplay {
 
 		let navigationList = [
 		{
-			title: 'Overview',
+			title: 'All Pages',
 			isSelected: true
 		},
 		{
@@ -991,6 +1087,9 @@ class AllPagesLevelTwoDisplay extends LevelTwoDisplay {
 		});
 
 		this.openLevelThreeDisplay(0);
+
+		//listener for changes to the project name
+		this.hookToProjectUpdateListener();
 	}
 
 	openLevelThreeDisplay(index){
@@ -1011,7 +1110,20 @@ class AllPagesLevelTwoDisplay extends LevelTwoDisplay {
 		}
 	}
 
+	hookToProjectUpdateListener(){
+		dashboardDisplay.projectHandler.subject.listeners.push(this.projectUpdated.bind(this));
+	}
+
+	unhookFromProjectUpdateListener(){
+		dashboardDisplay.projectHandler.subject.listeners.pop();
+	}
+
+	projectUpdated(project){
+		this.project = project;
+	}
+
 	close(){
+		this.unhookFromProjectUpdateListener();
 		this.childDisplay.close();
 	}
 }
@@ -1027,7 +1139,7 @@ class CreatePageLevelTwoDisplay extends LevelTwoDisplay {
 		LevelTwoDisplay.OpenLevelTwoDisplayContainer(4);
 
 		getCreatePageBtn().onclick = () => {
-			let name = getPageNameInput().value;
+			let name = escapeHTML(getPageNameInput().value.trim());
 			if(!name){
 				showError(getCreatePageErrorMessage(), "Enter the name of your page");
 				getPageNameInput().focus();
@@ -1061,6 +1173,130 @@ class CreatePageLevelTwoDisplay extends LevelTwoDisplay {
 			DashboardDisplay.HideProgressContainer();
 			console.error(err);
 			showError(getCreatePageErrorMessage(), err, 5000);
+		});
+	}
+}
+
+class AllEventsLevelTwoDisplay extends LevelTwoDisplay {
+	constructor(project, page){
+		super();
+		this.project = project;
+		this.page = page;
+	}
+
+	open(){
+		LevelTwoDisplay.HideLevelTwoProgressContainer();
+		LevelTwoDisplay.OpenLevelTwoDisplayContainer(3);
+
+		let navigationList = [
+		{
+			title: 'All Events',
+			isSelected: true
+		},
+		{
+			title: 'Settings',
+			isSelected: false
+		}
+		];
+
+		this.navContainerView = new NavContainerView(navigationList, index => {
+			this.navContainerView.selectNavItem(index);
+			this.childDisplay.close();
+			this.openLevelThreeDisplay(index);
+		});
+
+		this.openLevelThreeDisplay(0);
+
+		//listener for changes to the page details
+		this.hookToPageUpdateListener();
+	}
+
+	openLevelThreeDisplay(index){
+		switch(index){
+			case 0:
+			this.childDisplay = new AllEventsLevelThreeDisplay(this.project, this.page);
+			this.childDisplay.open();
+			break;
+
+			case 1:
+			this.childDisplay = new PageSettingsLevelThreeDisplay(this.project, this.page);
+			this.childDisplay.open();
+			break;
+
+			default:
+			console.log("Default events nav menu item");
+			break;
+		}
+	}
+
+	hookToPageUpdateListener(){
+		dashboardDisplay.pageHandler.subject.listeners.push(this.pageUpdated.bind(this));
+		//console.log(dashboardDisplay.pageHandler.subject.listeners.length);
+	}
+
+	unhookFromPageUpdateListener(){
+		//test to ensure that this is removed
+		dashboardDisplay.pageHandler.subject.listeners.pop();
+	}
+
+	pageUpdated(page){
+		this.page = page;
+	}
+
+	close(){
+		this.unhookFromPageUpdateListener();
+		this.childDisplay.close();
+	}
+}
+
+class CreateEventLevelTwoDisplay extends LevelTwoDisplay {
+	constructor(project, page){
+		super();
+		this.project = project;
+		this.page = page;
+	}
+
+	open(){
+		LevelTwoDisplay.HideLevelTwoProgressContainer();
+		LevelTwoDisplay.OpenLevelTwoDisplayContainer(5);
+
+		getCreateEventBtn().onclick = () => {
+			let name = escapeHTML(getEventNameInput().value.trim());
+			let description = escapeHTML(getEventDescriptionInput().value.trim());
+			if(!name){
+				showError(getCreateEventErrorMessage(), "Enter the name of the event");
+				getEventNameInput().focus();
+				return;
+			}
+
+			this.createEvent(name, description);
+		};
+	}
+
+	close(){
+		getEventNameInput().value = "";
+		getEventDescriptionInput().value = "";
+	}
+
+	createEvent(name, description){
+
+		let data = { name: name, description: description, apiKey: sessionStorage.getItem("apiKey"), projectId: this.page.projectId, pageId: this.page._id };
+		let url = getHostUrl() + "event/createEvent";
+
+		DashboardDisplay.ShowProgressContainer();
+
+		sendPostRequest(url, data)
+		.then(json => {
+			DashboardDisplay.HideProgressContainer();
+			if(json.status == "success"){
+				dashboardDisplay.displaySwitcher.open(new AllEventsLevelOneDisplay(this.project, this.page));
+			}else{
+				showError(getCreateEventErrorMessage(), json.error, 5000);
+			}
+		}).catch(err => {
+			DashboardDisplay.HideProgressContainer();
+			console.error(err);
+			showError(getCreateEventErrorMessage(), err, 5000);
 		});
 	}
 }
@@ -1198,8 +1434,7 @@ class AllPagesLevelThreeDisplay extends LevelThreeDisplay {
 		if(filteredPages.length > 0){
 			filteredPages.forEach(page => {
 				document.getElementById(page._id).onclick = () => {
-					console.log("Open page : " + page.name);
-					//dashboardDisplay.displaySwitcher.open(new AllPagesLevelOneDisplay(project));
+					dashboardDisplay.displaySwitcher.open(new AllEventsLevelOneDisplay(this.project, page));
 				};
 			});
 			this.showPageContainer();
@@ -1261,7 +1496,7 @@ class ProjectSettingsLevelThreeDisplay extends LevelThreeDisplay {
 
 		getSettingsUpateProjectBtn().onclick = () => {
 
-			let projectName = getSettingsProjectNameInput().value.trim();
+			let projectName = escapeHTML(getSettingsProjectNameInput().value.trim());
 
 			if(!projectName){
 				showError(getSettingsUpdateProjectErrorMessage(), "Please the project name");
@@ -1319,11 +1554,218 @@ class ProjectSettingsLevelThreeDisplay extends LevelThreeDisplay {
 	}
 
 	setupDeleteProject(){
+		getSettingsDeleteProjectBtn().onclick = () => {
+			const choiceDialog = new ChoiceDialog({
+				message: "<p style='color:red;'>Delete project. Are you sure?</p>",
+				btnLabel1: "Yes",
+				btnLabel2: "Cancel",
+				onclickBtn1: (dg) => {
+					this.deleteProject();
+					dg.hide();
+				},
+				onclickBtn2: (dg) => {
+					dg.hide();
+				}
+			});
+			choiceDialog.show();
+		};
+	}
 
+	deleteProject(){
+		let user = dashboardDisplay.userHandler.data;
+
+		let data = { apiKey: sessionStorage.getItem("apiKey"), projectId: this.project._id };
+		let url = getHostUrl() + "project/deleteProject";
+
+		DashboardDisplay.ShowProgressContainer();
+
+		sendPostRequest(url, data)
+		.then(json => {
+			if(json.status == "success"){
+				const alertDialog = new AlertDialog({
+					alert: "Project deleted successfully.",
+					btnLabel: "OK",
+					onclick: (dg) => {
+						DashboardDisplay.HideProgressContainer();
+						dashboardDisplay.displaySwitcher.open(new AllProjectsLevelOneDisplay());
+						dg.hide();
+					}
+				});
+				alertDialog.show();
+			}else{
+				DashboardDisplay.HideProgressContainer();
+				const alertDialog = new AlertDialog({
+					alert: json.error,
+					btnLabel: "OK",
+					onclick: (dg) => {
+						dg.hide();
+					}
+				});
+				alertDialog.show();
+			}
+		}).catch(err => {
+			DashboardDisplay.HideProgressContainer();
+			console.error(err);
+			const alertDialog = new AlertDialog({
+				alert: err,
+				btnLabel: "OK",
+				onclick: (dg) => {
+					dg.hide();
+				}
+			});
+			alertDialog.show();
+		});
 	}
 
 	close(){
 		this.unhookFromProjectUpdateListener();
 		getSettingsProjectNameInput().value = "";
+	}
+}
+
+class AllEventsLevelThreeDisplay extends LevelThreeDisplay {
+	constructor(project, page) {
+		super();
+		this.project = project;
+		this.page = page;
+	}
+
+	open(){
+		LevelThreeDisplay.ShowLevelThreeProgressContainer();
+
+		this.loadEvents(response => {
+			if(!response.isLoaded){
+				const alertDialog = new AlertDialog({
+					alert: response.message,
+					btnLabel: response.btnLabel,
+					onclick: response.onclick
+				});
+				alertDialog.show();
+			}else{
+				this.events = response.events;
+
+				getAddEventBtn().onclick = () => {
+					dashboardDisplay.displaySwitcher.open(new CreateEventLevelOneDisplay(this.project, this.page));
+				};
+
+				getFilterEventsInput().addEventListener("input", this.filterEventsInputListener.bind(this));
+				this.filterEvents("");
+
+				if(this.events.length == 0){
+					getNoEventContainer().querySelector('p').textContent = "Create an event to get started";
+					this.showNoEventContainer();
+				}else{
+					this.showEventContainer();
+				}
+
+				LevelThreeDisplay.OpenLevelThreeDisplayContainer(2);
+				LevelThreeDisplay.HideLevelThreeProgressContainer();
+			}
+		});
+	}
+
+	loadEvents(callback){
+
+		let url = getHostUrl() + "event/getPageEvents?apiKey=" + sessionStorage.getItem("apiKey") + "&projectId=" + this.page.projectId + "&pageId=" + this.page._id;
+
+		sendGetRequest(url)
+		.then(json => {
+			if(json.status == 'success'){
+				callback({
+					isLoaded: true,
+					events: json.events
+				});
+			}else{
+				callback({
+					isLoaded: false,
+					message: json.error,
+					btnLabel: 'Retry',
+					onclick: dg => {
+						dg.hide();
+						dashboardDisplay.displaySwitcher.open(new AllEventsLevelOneDisplay(this.project, this.page));
+					}
+				});
+			}
+		}).catch(err => {
+			console.error(err);
+			callback({
+				isLoaded: false,
+				message: err,
+				btnLabel: 'Retry',
+				onclick: dg => {
+					dg.hide();
+					dashboardDisplay.displaySwitcher.open(new AllEventsLevelOneDisplay(this.project, this.page));
+				}
+			});
+		});
+	}
+
+	filterEventsInputListener(e){
+		this.filterEvents(e.target.value);
+	}
+
+	filterEvents(name){
+		let filteredEvents = [];
+		let html = "";
+		this.events.forEach(event => {
+			if(event.name.toLowerCase().trim().includes(name.toLowerCase().trim())){
+				html += `
+				<div id="${event._id}" class="rex-border-bottom-lightgray rex-selectable-item-background rex-hover">
+					<div class="custom-responsive-container">
+						<div class="custom-responsive-grid rex-display-grid2">
+							<div>
+								<p class="rex-mt-16px rex-mb-16px custom-responsive-paragraph rex-color-black rex-fs-normal">
+								${event.name}</p>
+							</div>
+							<div>
+								<p class="rex-fs-small rex-color-darkgray rex-mt-16px rex-mb-16px">
+									${event.description}
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				`;
+				filteredEvents.push(event);
+			}
+		});
+
+		getEventListContainer().innerHTML = html;
+
+		if(filteredEvents.length > 0){
+			filteredEvents.forEach(event => {
+				document.getElementById(event._id).onclick = () => {
+					console.log(event.name);
+					//dashboardDisplay.displaySwitcher.open(new AllEventsLevelOneDisplay(this.project, page));
+				};
+			});
+			this.showEventContainer();
+		}else{
+			getNoEventContainer().querySelector('p').textContent = `'${name}' could not be found`;
+			this.showNoEventContainer();
+		}
+	}
+
+	showEventContainer(){
+		getEventListContainer().style.display = "block";
+		getNoEventContainer().style.display = "none";
+	}
+
+	showNoEventContainer(){
+		getEventListContainer().style.display = "none";
+		getNoEventContainer().style.display = "block";
+	}
+}
+
+class PageSettingsLevelThreeDisplay extends LevelThreeDisplay {
+	constructor(project, page){
+		super();
+		this.project = project;
+		this.page = page;
+	}
+
+	open(){
+		LevelThreeDisplay.HideLevelThreeProgressContainer();
+		LevelThreeDisplay.OpenLevelThreeDisplayContainer(3);
 	}
 }

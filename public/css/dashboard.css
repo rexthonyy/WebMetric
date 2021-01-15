@@ -31,6 +31,10 @@
 	font-size: 1.4em;
 }
 
+.custom-responsive-grid{
+	width: 100%;
+}
+
 @media (max-width: 1280px){
 	.custom-modal{
 		width: 50%;
@@ -80,7 +84,7 @@
 }
 
 @media (max-width: 660px){
-	.custom-responsive-grid2{
+	.custom-responsive-grid2, .custom-responsive-grid{
 		display: block;
 		width: 100%;
 	}

@@ -29,6 +29,10 @@ app.use("/project", projectRoute);
 const pageRoute = require("./routes/page");
 app.use("/page", pageRoute);
 
+const eventRoute = require("./routes/event");
+app.use("/event", eventRoute);
+
+
 //database connection
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/webmetricDB";
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true});

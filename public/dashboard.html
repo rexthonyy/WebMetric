@@ -89,7 +89,7 @@
 				<div id="levelOneContainer" class="rex-display-block"><!-- levelOneContainer -->
 					<div class="rex-border-bottom-gray "><!-- levelOneNavContainer -->
 						<div class="levelOneDisplayContainer rex-height-60px rex-background-gray rex-border-black">
-							<p id="simpleLevelOneNavContainerLabel" class="custom-responsive-container rex-center-relative-div-vertical rex-color-black rex-fs-normal">One</p>
+							<p id="simpleLevelOneNavContainerLabel" class="custom-responsive-container rex-center-relative-div-vertical rex-color-black rex-fs-extra-small">One</p>
 						</div>
 						<div class="levelOneDisplayContainer rex-height-60px">
 							<div id="abcd" class="rex-center-relative-div-vertical">
@@ -128,7 +128,7 @@
 									<div class="rex-space-8px"></div>
 
 									<label for="projectNameInput" class="rex-fs-extra-small rex-weight-bold">Project name</label>
-									<input type="text" id="projectNameInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-small" placeholder="website.com" />
+									<input type="text" id="projectNameInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-small" placeholder="domain.com" />
 
 									<div class="rex-space-32px"></div>
 									<div id="createProjectErrorMessage" class="rex-responsive-paragraph rex-color-red rex-center-text rex-fs-small rex-display-gone">An error occured</div>
@@ -257,7 +257,7 @@
 								</div>
 								<div>
 									<div id="levelThreeContainer"> <!-- the pages sub containers -->
-										<div class="levelThreeDisplayContainer"> <!-- the page list -->
+										<div class="levelThreeDisplayContainer"> <!-- (0) the page list -->
 											<div class="custom-responsive-container rex-height-70px">
 												<div class="rex-display-grid2 rex-center-relative-div-vertical">
 													<div>
@@ -279,7 +279,7 @@
 												<p class="rex-fs-normal rex-mt-32px">Create a page to get started</p>
 											</div>
 										</div>
-										<div class="levelThreeDisplayContainer"> <!-- the project settings -->
+										<div class="levelThreeDisplayContainer"> <!-- (1) the project settings -->
 											<div class="custom-responsive-container">
 												<!-- update project -->
 												<div class="rex-pt-32px rex-pb-32px rex-border-bottom-lightgray">
@@ -323,6 +323,81 @@
 												<div class="rex-space-32px"></div>
 											</div>
 										</div>
+										<div class="levelThreeDisplayContainer"> <!-- (2) the event list -->
+											<div class="custom-responsive-container rex-height-70px">
+												<div class="rex-display-grid2 rex-center-relative-div-vertical">
+													<div>
+														<input type="text" id="filterEventsInput" class="rex-center-relative-div-vertical rex-responsive-paragragh rex-input-primary rex-width-250px rex-pad8px rex-curDiv-4px rex-fs-extra-small" placeholder="Filter events" />
+													</div>
+													<div>
+														<button id="addEventBtn" class="rex-center-relative-div-vertical custom-responsive-paragraph rex-btn-secondary rex-fs-small rex-pad8px rex-color-black rex-curDiv-0 rex-fs-normal rex-float-right">Add event</button>
+													</div>
+												</div>
+											</div>
+											<div id="eventListContainer">
+												<div id="#" class="rex-border-bottom-lightgray rex-selectable-item-background rex-hover">
+													<div class="custom-responsive-container">
+														<div class="custom-responsive-grid rex-display-grid2">
+															<div>
+																<p class="rex-mt-16px rex-mb-16px custom-responsive-paragraph rex-color-black rex-fs-normal">event.html</p>
+															</div>
+															<div>
+																<p class="rex-fs-small rex-color-darkgray rex-mt-16px rex-mb-16px">
+																	This is a description of the event. You can place anything here.
+																</p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div id="noEventContainer" class="custom-responsive-container rex-display-gone">
+												<p class="rex-fs-normal rex-mt-32px">Create an event to get started</p>
+											</div>
+										</div>
+										<div class="levelThreeDisplayContainer"> <!-- (3) the page settings -->
+											<div class="custom-responsive-container">
+												<!-- update page -->
+												<div class="rex-pt-32px rex-pb-32px rex-border-bottom-lightgray">
+													<div class="custom-responsive-grid2 rex-display-grid2 rex-width-80pp">
+														<div class="custom-responsive-settings-description-container rex-pr-32px">
+															<p class="custom-responsive-settings-description-title rex-fs-normal rex-color-black">Page Information</p>
+														</div>
+														<div class="custom-responsive-settings-content-container rex-pl-32px">
+															<label for="settingsPageNameInput" class="rex-fs-extra-small rex-weight-bold">Page Name</label>
+															<input type="text" id="settingsPageNameInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-small" placeholder="domain.com" />
+
+															<div class="rex-space-8px"></div>
+
+															<div id="settingsUpdatePageErrorMessage" class="custom-responsive-settings-content-error-message rex-responsive-paragraph rex-color-red rex-fs-extra-small rex-display-gone">An error occured</div>
+															<div class="rex-space-16px"></div>
+
+															<button id="settingsUpatePageBtn" class="custom-responsive-settings-content-btn rex-btn-primary rex-pad8px rex-color-white rex-curDiv-0 rex-fs-small">Save</button>
+
+															<div class="rex-space-16px"></div>
+														</div>
+													</div>
+												</div>
+
+												<!-- Delete Page -->
+												<div class="rex-pt-32px rex-pb-32px rex-border-bottom-lightgray">
+													<div class="custom-responsive-grid2 rex-display-grid2 rex-width-80pp">
+														<div class="custom-responsive-settings-description-container rex-pr-32px">
+															<p class="custom-responsive-settings-description-title rex-fs-normal rex-color-red">Delete Page</p>
+															<p class="custom-responsive-settings-description-paragraph rex-mt-8px rex-fs-small rex-line-height-small rex-color-gray rex-width-80pp"><b>Warning: </b>Deleting this page and it's data is irreversible</p>
+															<div class="rex-space-16px"></div>
+														</div>
+														<div class="custom-responsive-settings-content-container rex-pl-32px">
+															<button id="settingsDeletePageBtn" class="custom-responsive-settings-content-btn rex-btn-secondary rex-pad8px rex-color-red rex-border-red rex-curDiv-0 rex-fs-small">Delete Page</button>
+														</div>
+													</div>
+												</div>
+
+												<div class="rex-space-32px"></div>
+												<div class="rex-space-32px"></div>
+												<div class="rex-space-32px"></div>
+												<div class="rex-space-32px"></div>
+											</div>
+										</div>
 									</div>
 									<div id="levelThreeProgressContainer" class="rex-center-text"> <!-- progress container -->
 										<img class="rex-width-50px rex-height-50px" src="images/icons/loading.gif"/>
@@ -335,7 +410,7 @@
 									<div class="rex-space-8px"></div>
 
 									<label for="pageNameInput" class="rex-fs-extra-small rex-weight-bold">Page name</label>
-									<input type="text" id="pageNameInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-small" placeholder="/index.html" />
+									<input type="text" id="pageNameInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-small" placeholder="index.html" />
 
 									<div class="rex-space-32px"></div>
 									<div id="createPageErrorMessage" class="rex-responsive-paragraph rex-color-red rex-center-text rex-fs-small rex-display-gone">An error occured</div>
@@ -344,7 +419,26 @@
 									<button id="createPageBtn" class="rex-responsive-btn rex-btn-primary rex-pad16px rex-color-white rex-curDiv-8px rex-fs-normal rex-width-100pp">Create Page</button>
 								</div>
 							</div>
-							<div class="levelTwoDisplayContainer">Four dpc</div>
+							<div class="levelTwoDisplayContainer"> <!-- 5 create a new event -->
+								<div class="rex-responsive-center-div-2 rex-center-div-horizontal">
+									<div class="rex-space-32px"></div>
+									<div class="rex-space-8px"></div>
+
+									<label for="eventNameInput" class="rex-fs-extra-small rex-weight-bold">Event name</label>
+									<input type="text" id="eventNameInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-small" placeholder="event name" />
+
+									<div class="rex-space-16px"></div>
+									<label for="eventDescriptionInput" class="rex-fs-extra-small rex-weight-bold">Event description</label>
+									<textarea type="text" id="eventDescriptionInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-height-200px rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-normal rex-noresize"></textarea>
+
+									<div class="rex-space-32px"></div>
+									<div id="createEventErrorMessage" class="rex-responsive-paragraph rex-color-red rex-center-text rex-fs-small rex-display-gone">An error occured</div>
+									<div class="rex-space-32px"></div>
+
+									<button id="createEventBtn" class="rex-responsive-btn rex-btn-primary rex-pad16px rex-color-white rex-curDiv-8px rex-fs-normal rex-width-100pp">Create Event</button>
+								</div>
+							</div>
+							<div class="levelTwoDisplayContainer">level5C</div>
 						</div>
 						<div id="levelTwoProgressContainer" class="rex-display-gone rex-center-text"><!-- levelTwoProgressContainer -->
 							<img class="rex-width-50px rex-height-50px" src="images/icons/loading.gif"/>
