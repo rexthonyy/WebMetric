@@ -2078,10 +2078,191 @@ class EventSettingsLevelThreeDisplay extends LevelThreeDisplay {
 
 	open(){
 		LevelThreeDisplay.HideLevelThreeProgressContainer();
+
+		this.hookToEventUpdateListener();
+		this.setupEventInfo();
+		this.setupEventKey();
+		this.setupDeleteEvent();
+
 		LevelThreeDisplay.OpenLevelThreeDisplayContainer(5);
 	}
 
+	hookToEventUpdateListener(){
+		dashboardDisplay.eventHandler.subject.listeners.push(this.eventUpdated.bind(this));
+		//console.log(dashboardDisplay.pageHandler.subject.listeners.length);
+	}
+
+	unhookFromEventUpdateListener(){
+		//test to ensure that this is removed
+		dashboardDisplay.eventHandler.subject.listeners.pop();
+	}
+
+	eventUpdated(event){
+		this.event = event;
+		getSettingsEventNameInput().value = event.name;
+		getSettingsEventDescriptionInput().value = event.description;
+		getHiddenSettingsEventKeyInput().value = event.eventKey;
+		getVisibleSettingsEventKeyInput().value = event.eventKey;
+	}
+
+	setupEventInfo(){
+		getSettingsEventNameInput().value = this.event.name;
+		getSettingsEventDescriptionInput().value = this.event.description;
+
+		getSettingsUpateEventBtn().onclick = () => {
+
+			let name = getSettingsEventNameInput().value.trim();
+			let description = getSettingsEventDescriptionInput().value.trim();
+
+			if(!name){
+				showError(getSettingsUpdateEventErrorMessage(), "Please the event name");
+				getSettingsEventNameInput().focus();
+				return;
+			}
+			if(name == this.event.name && description == this.event.description){
+				showError(getSettingsUpdateEventErrorMessage(), "Event is already up-to-date");
+				return;
+			}
+			
+			const choiceDialog = new ChoiceDialog({
+				message: "Update Event Info. Are you sure?",
+				btnLabel1: "Yes",
+				btnLabel2: "Cancel",
+				onclickBtn1: (dg) => {
+					this.updateEvent(name, description);
+					dg.hide();
+				},
+				onclickBtn2: (dg) => {
+					dg.hide();
+				}
+			});
+			choiceDialog.show();
+		};
+	}
+
+	updateEvent(name, description){
+		let data = { eventName: name, eventDescription: description, eventId: this.event._id, apiKey: sessionStorage.getItem("apiKey") };
+		let url = getHostUrl() + "event/updateEvent";
+
+		DashboardDisplay.ShowProgressContainer();
+
+		sendPostRequest(url, data)
+		.then(json => {
+			DashboardDisplay.HideProgressContainer();
+			if(json.status == "success"){
+				const alertDialog = new AlertDialog({
+					alert: "Event info updated successfully",
+					btnLabel: "OK",
+					onclick: (dg) => {
+						dashboardDisplay.eventHandler.update(json.event);
+						dg.hide();
+					}
+				});
+				alertDialog.show();
+			}else{
+				showError(getSettingsUpdateEventErrorMessage(), json.error, 8000);
+			}
+		}).catch(err => {
+			DashboardDisplay.HideProgressContainer();
+			console.error(err);
+			showError(getSettingsUpdateEventErrorMessage(), err, 8000);
+		});
+	}
+
+	setupEventKey(){
+		getHiddenSettingsEventKeyInput().value = this.event.eventKey;
+		getVisibleSettingsEventKeyInput().value = this.event.eventKey;
+
+		this.isEventKeyVisible = true;
+		this.toggleEventKeyInputVisibility();
+
+		getSettingsShowHideEventKeyBtn().onclick = () => {
+			this.toggleEventKeyInputVisibility();
+		};
+	}
+
+	toggleEventKeyInputVisibility(){
+		if(this.isEventKeyVisible){
+			this.isEventKeyVisible = false;
+			getSettingsShowHideEventKeyBtn().textContent = "Show";
+			getHiddenSettingsEventKeyInput().style.display = "block";
+			getVisibleSettingsEventKeyInput().style.display = "none";
+		}else{
+			this.isEventKeyVisible = true;
+			getSettingsShowHideEventKeyBtn().textContent = "Hide";
+			getHiddenSettingsEventKeyInput().style.display = "none";
+			getVisibleSettingsEventKeyInput().style.display = "block";
+		}
+	}
+
+	setupDeleteEvent(){
+		getSettingsDeleteEventBtn().onclick = () => {
+			const choiceDialog = new ChoiceDialog({
+				message: "<p style='color:red;'>Delete event. Are you sure?</p>",
+				btnLabel1: "Yes",
+				btnLabel2: "Cancel",
+				onclickBtn1: (dg) => {
+					this.deleteEvent();
+					dg.hide();
+				},
+				onclickBtn2: (dg) => {
+					dg.hide();
+				}
+			});
+			choiceDialog.show();
+		};
+	}
+
+	deleteEvent(){
+
+		let data = { eventId: this.event._id, apiKey: sessionStorage.getItem("apiKey") };
+		let url = getHostUrl() + "event/deleteEvent";
+
+		DashboardDisplay.ShowProgressContainer();
+
+		sendPostRequest(url, data)
+		.then(json => {
+			if(json.status == "success"){
+				const alertDialog = new AlertDialog({
+					alert: "Event deleted successfully.",
+					btnLabel: "OK",
+					onclick: (dg) => {
+						DashboardDisplay.HideProgressContainer();
+						dashboardDisplay.displaySwitcher.open(new AllEventsLevelOneDisplay(this.project, this.page));
+						dg.hide();
+					}
+				});
+				alertDialog.show();
+			}else{
+				DashboardDisplay.HideProgressContainer();
+				const alertDialog = new AlertDialog({
+					alert: json.error,
+					btnLabel: "OK",
+					onclick: (dg) => {
+						dg.hide();
+					}
+				});
+				alertDialog.show();
+			}
+		}).catch(err => {
+			DashboardDisplay.HideProgressContainer();
+			console.error(err);
+			const alertDialog = new AlertDialog({
+				alert: err,
+				btnLabel: "OK",
+				onclick: (dg) => {
+					dg.hide();
+				}
+			});
+			alertDialog.show();
+		});
+	}
+
 	close(){
-		
+		this.unhookFromEventUpdateListener();
+		getSettingsEventNameInput().value = "";
+		getSettingsEventDescriptionInput().value = "";
+		getHiddenSettingsEventKeyInput().value = "";
+		getVisibleSettingsEventKeyInput().value = "";
 	}
 }

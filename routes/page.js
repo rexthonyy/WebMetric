@@ -91,7 +91,7 @@ router.post('/updatePage', (req, res) => {
                 }else{
                     doc.name = pageName;
                     try{
-                        page = await doc.save();
+                        const page = await doc.save();
                         res.json({ status: 'success', page: page});
                     }catch(err){
                         res.status(400).json({ status: 'failed', error: 'Failed to update page'});

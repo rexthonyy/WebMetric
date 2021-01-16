@@ -69,4 +69,75 @@ router.post('/createEvent', (req, res) => {
     });
 });
 
+router.post('/updateEvent', (req, res) => {
+
+    const eventName = req.body.eventName;
+    const eventDescription = req.body.eventDescription;
+    const apiKey = req.body.apiKey;
+    const eventId = req.body.eventId;
+
+    User.findOne({ apiKey: apiKey }, '_id',(err, doc) => {
+        if(err) {
+            res.json({ status: 'failed', error: err });
+            return;
+        } 
+        if(doc == null){
+            res.json({ status: 'failed', error: 'User not found'});
+        }else{
+            const userId = doc._id;
+
+            Event.findOne({ _id: eventId, userId: userId }, async (err, doc) => {
+                if(err) {
+                    res.json({ status: 'failed', error: err });
+                    return;
+                } 
+                if(doc == null){
+                    res.json({ status: 'failed', error: 'Event not found'});
+                }else{
+                    doc.name = eventName;
+                    doc.description = eventDescription;
+                    try{
+                        const event = await doc.save();
+                        res.json({ status: 'success', event: event});
+                    }catch(err){
+                        res.status(400).json({ status: 'failed', error: 'Failed to update event'});
+                    }
+                }
+            });
+        }
+    });
+});
+
+router.post('/deleteEvent', (req, res) => {
+
+    const eventId = req.body.eventId;
+    const apiKey = req.body.apiKey;
+
+    User.findOne({ apiKey: apiKey }, '_id',(err, doc) => {
+        if(err) {
+            res.json({ status: 'failed', error: err });
+            return;
+        } 
+        if(doc == null){
+            res.json({ status: 'failed', error: 'User not found'});
+        }else{
+            const userId = doc._id;
+            
+            //find other event dependencies and delete them here
+            Event.findOne({ _id: eventId, userId: userId }, async (err, doc) => {
+                if(err) {
+                    res.json({ status: 'failed', error: err });
+                    return;
+                } 
+                if(doc == null){
+					res.json({ status: 'failed', error: 'Event not found'});
+                }else{
+                	doc.remove();
+                    res.json({ status: 'success' });
+                }
+            });
+        }
+    });
+});
+
 module.exports = router;

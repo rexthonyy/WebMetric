@@ -318,3 +318,43 @@ function getSettingsDeletePageBtn(){
 	return document.getElementById("settingsDeletePageBtn");
 }
 
+function getSettingsEventNameInput(){
+	return document.getElementById("settingsEventNameInput");
+}
+
+function getSettingsEventDescriptionInput(){
+	return document.getElementById("settingsEventDescriptionInput");
+}
+
+function getHiddenSettingsEventKeyInput(){
+	return document.getElementById("hiddenSettingsEventKeyInput");
+}
+
+function getVisibleSettingsEventKeyInput(){
+	return document.getElementById("visibleSettingsEventKeyInput");
+}
+
+function getSettingsUpateEventBtn(){
+	return document.getElementById("settingsUpateEventBtn");
+}
+
+function getSettingsUpdateEventErrorMessage(){
+	return document.getElementById("settingsUpdateEventErrorMessage");
+}
+
+function getSettingsShowHideEventKeyBtn(){
+	return document.getElementById("settingsShowHideEventKeyBtn");
+}
+
+function getHiddenSettingsEventKeyInput(){
+	return document.getElementById("hiddenSettingsEventKeyInput");
+}
+
+function getVisibleSettingsEventKeyInput(){
+	return document.getElementById("visibleSettingsEventKeyInput");
+}
+
+function getSettingsDeleteEventBtn(){
+	return document.getElementById("settingsDeleteEventBtn");
+}
+

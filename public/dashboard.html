@@ -402,7 +402,74 @@
 											This is where we view the analytics
 										</div>
 										<div class="levelThreeDisplayContainer"><!-- (5) the event settings -->
-											Event settings
+											<div class="custom-responsive-container">
+												<!-- update event -->
+												<div class="rex-pt-32px rex-pb-32px rex-border-bottom-lightgray">
+													<div class="custom-responsive-grid2 rex-display-grid2 rex-width-80pp">
+														<div class="custom-responsive-settings-description-container rex-pr-32px">
+															<p class="custom-responsive-settings-description-title rex-fs-normal rex-color-black">Event Information</p>
+														</div>
+														<div class="custom-responsive-settings-content-container rex-pl-32px">
+															<label for="settingsEventNameInput" class="rex-fs-extra-small rex-weight-bold">Event Name</label>
+															<input type="text" id="settingsEventNameInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-small" placeholder="event name" />
+
+															<div class="rex-space-16px"></div>
+
+															<label for="settingsEventDescriptionInput" class="rex-fs-extra-small rex-weight-bold">Event Description (Optional)</label>
+															<textarea type="text" id="settingsEventDescriptionInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-height-200px rex-pad8px rex-curDiv-4px rex-mt-8px rex-fs-normal rex-noresize" placeholder="Describe this event"></textarea>
+
+															<div class="rex-space-8px"></div>
+
+															<div id="settingsUpdateEventErrorMessage" class="custom-responsive-settings-content-error-message rex-responsive-paragraph rex-color-red rex-fs-extra-small rex-display-gone">An error occured</div>
+															<div class="rex-space-16px"></div>
+
+															<button id="settingsUpateEventBtn" class="custom-responsive-settings-content-btn rex-btn-primary rex-pad8px rex-color-white rex-curDiv-0 rex-fs-small">Save</button>
+
+															<div class="rex-space-16px"></div>
+														</div>
+													</div>
+												</div>
+
+												<!-- Event Key -->
+												<div class="rex-pt-32px rex-pb-32px rex-border-bottom-lightgray">
+													<div class="custom-responsive-grid2 rex-display-grid2 rex-width-80pp">
+														<div class="custom-responsive-settings-description-container rex-pr-32px">
+															<p class="custom-responsive-settings-description-title rex-fs-normal rex-color-black">Event Key</p>
+														</div>
+														<div class="custom-responsive-settings-content-container rex-pl-32px">
+															<input disabled type="password" id="hiddenSettingsEventKeyInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-fs-small rex-display-block"/>
+
+															<input disabled type="text" id="visibleSettingsEventKeyInput" class="rex-responsive-paragragh rex-input-primary rex-width-100pp rex-pad8px rex-curDiv-4px rex-fs-small rex-display-gone"/>
+
+															<div class="rex-space-8px"></div>
+															<div class="rex-space-16px"></div>
+
+															<button id="settingsShowHideEventKeyBtn" class="custom-responsive-settings-content-btn rex-btn-secondary rex-pad8px rex-color-black rex-curDiv-0 rex-fs-small rex-mr-4px">Show</button>
+
+															<div class="rex-space-16px"></div>
+														</div>
+													</div>
+												</div>
+
+												<!-- Delete Event -->
+												<div class="rex-pt-32px rex-pb-32px rex-border-bottom-lightgray">
+													<div class="custom-responsive-grid2 rex-display-grid2 rex-width-80pp">
+														<div class="custom-responsive-settings-description-container rex-pr-32px">
+															<p class="custom-responsive-settings-description-title rex-fs-normal rex-color-red">Delete Event</p>
+															<p class="custom-responsive-settings-description-paragraph rex-mt-8px rex-fs-small rex-line-height-small rex-color-gray rex-width-80pp"><b>Warning: </b>Deleting this event and it's data is irreversible</p>
+															<div class="rex-space-16px"></div>
+														</div>
+														<div class="custom-responsive-settings-content-container rex-pl-32px">
+															<button id="settingsDeleteEventBtn" class="custom-responsive-settings-content-btn rex-btn-secondary rex-pad8px rex-color-red rex-border-red rex-curDiv-0 rex-fs-small">Delete Event</button>
+														</div>
+													</div>
+												</div>
+
+												<div class="rex-space-32px"></div>
+												<div class="rex-space-32px"></div>
+												<div class="rex-space-32px"></div>
+												<div class="rex-space-32px"></div>
+											</div>
 										</div>
 										<div class="levelThreeDisplayContainer"></div>
 									</div>
