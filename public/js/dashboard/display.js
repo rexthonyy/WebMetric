@@ -1842,19 +1842,19 @@ class AllEventsLevelThreeDisplay extends LevelThreeDisplay {
 			if(event.name.toLowerCase().trim().includes(name.toLowerCase().trim())){
 				html += `
 				<div id="${event._id}" class="rex-border-bottom-lightgray rex-selectable-item-background rex-hover">
-					<div class="custom-responsive-container">
-						<div class="custom-responsive-grid rex-display-grid2">
-							<div>
-								<p class="rex-mt-16px rex-mb-16px custom-responsive-paragraph rex-color-black rex-fs-normal">
-								${event.name}</p>
-							</div>
-							<div>
-								<p class="rex-fs-small rex-color-darkgray rex-mt-16px rex-mb-16px">
-									${event.description}
-								</p>
-							</div>
-						</div>
-					</div>
+				<div class="custom-responsive-container">
+				<div class="custom-responsive-grid rex-display-grid2">
+				<div>
+				<p class="rex-mt-16px rex-mb-16px custom-responsive-paragraph rex-color-black rex-fs-normal">
+				${event.name}</p>
+				</div>
+				<div>
+				<p class="rex-fs-small rex-color-darkgray rex-mt-16px rex-mb-16px">
+				${event.description}
+				</p>
+				</div>
+				</div>
+				</div>
 				</div>
 				`;
 				filteredEvents.push(event);
@@ -2061,6 +2061,24 @@ class EventLevelThreeDisplay extends LevelThreeDisplay {
 	open(){
 		LevelThreeDisplay.HideLevelThreeProgressContainer();
 		LevelThreeDisplay.OpenLevelThreeDisplayContainer(4);
+
+		getAddMetricBtn().onclick = () => {
+			const metricDialog = new MetricDialog({
+				title: "Create New Metric",
+				name: "",
+				key: "",
+				primaryBtnLabel: "Create",
+				secondaryBtnLabel: "Cancel",
+				onclickPrimaryBtn: (dg) => {
+					dg.showError("This is a test");
+					//dg.hide();
+				},
+				onclickSecondaryBtn: (dg) => {
+					dg.hide();
+				}
+			});
+			metricDialog.show();
+		};
 	}
 
 	close(){

@@ -124,3 +124,51 @@ class InputDialog extends Dialog {
 	}
 }
 
+class MetricDialog extends Dialog {
+	constructor(args){
+		super(args);
+	}
+
+	show(){
+		getMetricModalTitle().textContent = this.params.title;
+		getMetricModalNameInput().value = this.params.name;
+		getMetricModalKeyInput().value = this.params.key;
+		getMetricModalPrimaryBtn().textContent = this.params.primaryBtnLabel;
+		getMetricModalSecondaryBtn().textContent = this.params.secondaryBtnLabel;
+		getMetricModalPrimaryBtn().onclick = () => {
+			this.params.onclickPrimaryBtn(this);
+		};
+		getMetricModalSecondaryBtn().onclick = () => {
+			this.params.onclickSecondaryBtn(this);
+		};
+		
+		MetricDialog.ShowMetricModal();
+	}
+
+	getName(){
+		return getMetricModalNameInput().value;
+	}
+
+	getKey(){
+		return getMetricModalKeyInput().value;
+	}
+
+	showError(msg, duration=3000){
+		showError(getMetricModalErrorMessage(), msg, duration);
+	}
+
+	hide(){
+		MetricDialog.HideMetricModal();
+	}
+
+	static ShowMetricModal(){
+		Dialog.ShowModalBackground();
+		getMetricModal().style.display = "block";
+	}
+
+	static HideMetricModal(){
+		Dialog.HideModalBackground();
+		getMetricModal().style.display = "none";
+	}
+}
+

@@ -358,3 +358,35 @@ function getSettingsDeleteEventBtn(){
 	return document.getElementById("settingsDeleteEventBtn");
 }
 
+function getMetricModal(){
+	return document.getElementById("metricModal");
+}
+
+function getMetricModalTitle(){
+	return document.getElementById("metricModalTitle");
+}
+
+function getMetricModalSecondaryBtn(){
+	return document.getElementById("metricModalSecondaryBtn");
+}
+
+function getMetricModalPrimaryBtn(){
+	return document.getElementById("metricModalPrimaryBtn");
+}
+
+function getMetricModalNameInput(){
+	return document.getElementById("metricModalNameInput");
+}
+
+function getMetricModalKeyInput(){
+	return document.getElementById("metricModalKeyInput");
+}
+
+function getMetricModalErrorMessage(){
+	return document.getElementById("metricModalErrorMessage");
+}
+
+function getAddMetricBtn(){
+	return document.getElementById("addMetricBtn");
+}
+

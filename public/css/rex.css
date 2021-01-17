@@ -254,8 +254,20 @@ body{
 	background-color: orange;
 }
 
+.rex-background-cyan{
+	background-color: cyan;
+}
+
 .rex-background-pink{
 	background-color: pink;
+}
+
+.rex-background-darkgray{
+	background-color: rgb(100, 100, 100);
+}
+
+.rex-background-transparent-darkgray{
+	background-color: rgba(100, 100, 100, 0.3);
 }
 
 .rex-background-transparent{
@@ -327,6 +339,10 @@ body{
 	vertical-align: middle;
 }
 
+.rex-vertical-align-top{
+	vertical-align: top;
+}
+
 .rex-center-div-horizontal{
 	margin: 0 auto;
 }
@@ -336,6 +352,36 @@ body{
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
+}
+
+.rex-center-absolute-div-vertical{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.rex-transition-width-250ms{
+	transition: width 0.25s;
+}
+
+.rex-max-height-100px{
+	max-height: 100px;
+}
+
+.rex-max-height-200px{
+	max-height: 200px;
+}
+
+.rex-max-height-300px{
+	max-height: 300px;
+}
+
+.rex-max-height-400px{
+	max-height: 400px;
+}
+
+.rex-max-height-500px{
+	max-height: 500px;
 }
 
 .rex-height-10vh{
@@ -482,6 +528,18 @@ body{
 	height: 500px;
 }
 
+.rex-height-550px{
+	height: 550px;
+}
+
+.rex-width-0pp{
+	width: 0%;
+}
+
+.rex-width-5pp{
+	width: 5%;
+}
+
 .rex-width-10pp{
 	width: 10%;
 }
@@ -600,6 +658,10 @@ body{
 
 .rex-width-300px{
 	width: 300px;
+}
+
+.rex-width-350px{
+	width: 350px;
 }
 
 .rex-width-400px{
@@ -1225,6 +1287,18 @@ body{
 
 .rex-noresize{
 	resize: none;
+}
+
+.rex-clear-both{
+	clear: both;
+}
+
+.rex-clear-left{
+	clear: left;
+}
+
+.rex-clear-right{
+	clear: right;
 }
 
 .rex-modal-background{
