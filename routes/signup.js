@@ -94,10 +94,10 @@ function sendEmailTo(email, code, callback){
 	let fullYear = currentDate.getFullYear();
 
 	//send user email
-	let name = "WebMetric";
-	let from = "gringvoip@gmail.com";
+	let name = "Page Insight";
+	let from = "webpageinsight@gmail.com";
 	let to = email;
-	let subject = `Your WebMetric Verification code is ${code}`;
+	let subject = `Your Page Insight Verification code is ${code}`;
 	let message = `
 	<table width='100%' border='0'>
 		<thead>
@@ -111,15 +111,15 @@ function sendEmailTo(email, code, callback){
 				
 				Hi,
 
-				<br/></br>Your WebMetric verification code is <b>${code}</b>.
+				<br/></br>Your Page Insight verification code is <b>${code}</b>.
 
 				<br/><br/>
-				You are receiving this email because you are trying to sign up for WebMetric. If this email was sent
+				You are receiving this email because you are trying to sign up for Page Insight. If this email was sent
 				to you by mistake, please ignore it.
 
 				<br/><br/>
 				Thanks,
-				<br/>Support Team, WebMetric
+				<br/>Support Team, Page Insight
 
 				</td>
 			</tr>

@@ -129,10 +129,10 @@ function sendEmailTo(email, code, callback){
 	let fullYear = currentDate.getFullYear();
 
 	//send user email
-	let name = "WebMetric";
-	let from = "gringvoip@gmail.com";
+	let name = "Page Insight";
+	let from = "webpageinsight@gmail.com";
 	let to = email;
-	let subject = `Your WebMetric Password Reset Code is ${code}`;
+	let subject = `Your Page Insight Password Reset Code is ${code}`;
 	let message = `
 	<table width='100%' border='0'>
 		<thead>
@@ -146,16 +146,16 @@ function sendEmailTo(email, code, callback){
 				
 				Hi,
 
-				<br/></br>Your WebMetric password reset code is <b>${code}</b>.
+				<br/></br>Your Page Insight password reset code is <b>${code}</b>.
 
 				<br/><br/>
-				You are receiving this email because you are trying to reset your WebMetric password. If this email was sent
-				to you by mistake, please ignore it. If you did not request this change, please visit your WebMetric account
+				You are receiving this email because you are trying to reset your Page Insight password. If this email was sent
+				to you by mistake, please ignore it. If you did not request this change, please visit your Page Insight account
 				to secure your account.
 
 				<br/><br/>
 				Thanks,
-				<br/>Support Team, WebMetric
+				<br/>Support Team, Page Insight
 
 				</td>
 			</tr>

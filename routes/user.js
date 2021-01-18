@@ -85,10 +85,10 @@ function sendUpdateProfileEmailTo(user, email, callback){
     let fullYear = currentDate.getFullYear();
 
     //send user email
-    let name = "WebMetric";
-    let from = "webmetricapp@gmail.com";
+    let name = "Page Insight";
+    let from = "webpageinsight@gmail.com";
     let to = user.email;
-    let subject = "Your Web Metric Email Has Been Changed";
+    let subject = "Your Page Insight Email Has Been Changed";
     let message = `
     <table width='100%' border='0'>
     <thead>
@@ -102,15 +102,15 @@ function sendUpdateProfileEmailTo(user, email, callback){
 
     Hi <b>${user.username}</b>,
 
-    <br/></br>The request to change your email address was successful. Your Web Metric email is now <b>${email}</b>.
+    <br/></br>The request to change your email address was successful. Your Page Insight email is now <b>${email}</b>.
 
     <br/><br/>
-    If you do not recognise this activity, please immediately contact the Web Metric support team <a href="mailto:webmetricapp@gmail.com">here</a>
+    If you do not recognise this activity, please immediately contact the Page Insight support team <a href="mailto:webpageinsight@gmail.com">here</a>
     to secure your account.
 
     <br/><br/>
     Thanks,
-    <br/>Support Team, WebMetric
+    <br/>Support Team, Page Insight
 
     </td>
     </tr>
@@ -303,8 +303,8 @@ function sendChangePasswordEmailTo(email, user, callback){
     let fullYear = currentDate.getFullYear();
 
     //send user email
-    let name = "Web Metric";
-    let from = "webmetricapp@gmail.com";
+    let name = "Page Insight";
+    let from = "webpageinsight@gmail.com";
     let to = email;
     let subject = "Your password was changed";
     let message = `
@@ -320,15 +320,15 @@ function sendChangePasswordEmailTo(email, user, callback){
 
     Hi <b>${user.username}</b>,
 
-    <br/></br>Your WebMetric password has been successfully changed.
+    <br/></br>Your Page Insight password has been successfully changed.
 
     <br/><br/>
-    If you do not recognise this activity, please immediately contact the Web Metric support team 
-    <a href="mailto:webmetricapp@gmail.com">here</a> to secure your account.
+    If you do not recognise this activity, please immediately contact the Page Insight support team 
+    <a href="mailto:webpageinsight@gmail.com">here</a> to secure your account.
 
     <br/><br/>
     Thanks,
-    <br/>Support Team, Web Metric
+    <br/>Support Team, Page Insight
 
     </td>
     </tr>
@@ -368,8 +368,8 @@ function sendVerificationCodeEmailTo(email, code, callback){
     let fullYear = currentDate.getFullYear();
 
     //send user email
-    let name = "WebMetric";
-    let from = "webmetricapp@gmail.com";
+    let name = "Page Insight";
+    let from = "webpageinsight@gmail.com";
     let to = email;
     let subject = `${code} is your verification code`;
     let message = `
@@ -389,12 +389,12 @@ function sendVerificationCodeEmailTo(email, code, callback){
 
                 <br/><br/>
                 If this email was sent to you by mistake, please ignore it. 
-                If you do not recognise this activity, please visit your Web Metric account
+                If you do not recognise this activity, please visit your Page Insight account
                 to secure your account.
 
                 <br/><br/>
                 Thanks,
-                <br/>Support Team, WebMetric
+                <br/>Support Team, Page Insight
 
                 </td>
             </tr>
